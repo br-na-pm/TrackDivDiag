@@ -129,12 +129,9 @@ class Diverter:
         #If one of the segments on the divert is a AB or BA it becomes the reference sector
         if self.SpurTrackSegment.SegmentType == TrackSegmentType.AB or self.SpurTrackSegment.SegmentType == TrackSegmentType.BA:
             self.RefSegment = "spur"
-            print("spur")
         elif self.BaseTrackSegment.SegmentType == TrackSegmentType.AB or self.BaseTrackSegment.SegmentType == TrackSegmentType.BA:
             self.RefSegment = "base"
-            print("base")
         else:
-            print("other")
             self.RefSegment = "spur"
         
     def SetSectorName(self,divCount = 0) -> None:
@@ -235,6 +232,14 @@ class ASProject:
         diverts.append(Diverter(DivReferenceType.RelToTwo, secondSpurSeg, secondBaseSeg))
         return diverts
     
+    def SearchSegmentType(self,segName) -> TrackSegmentType:
+        for module in self._hwList.findall("{namespace}Module/[@Name='{segName}']"
+                    .format(
+                        namespace = "{http://br-automation.co.at/AS/Hardware}",
+                        segName=segName
+                        )):
+                return module.attrib['Type']
+
     def parseProject(self):
         self._getInputFiles()
         
@@ -256,22 +261,12 @@ class ASProject:
         et.register_namespace('', 'http://br-automation.co.at/AS/Hardware')
         
         self.hwTree = et.parse(self.HWPath)
-        root = self.hwTree.getroot()        
+        self._hwList = self.hwTree.getroot()        
         #Parse the .hw file to determine versions
         for div in self.Diverts:
             #get the segment type from the .hw file
-            for module in root.findall("{namespace}Module/[@Name='{segName}']"
-                    .format(
-                        namespace = "{http://br-automation.co.at/AS/Hardware}",
-                        segName=div.SpurTrackSegment.SegName
-                        )):
-                div.SpurTrackSegment.setSegmentType(module.attrib['Type'])
-            for module in root.findall("{namespace}Module/[@Name='{segName}']"
-                    .format(
-                        namespace = "{http://br-automation.co.at/AS/Hardware}",
-                        segName=div.BaseTrackSegment.SegName
-                        )):
-                div.BaseTrackSegment.setSegmentType(module.attrib['Type'])
+            div.SpurTrackSegment.setSegmentType(self.SearchSegmentType(div.SpurTrackSegment.SegName))
+            div.BaseTrackSegment.setSegmentType(self.SearchSegmentType(div.BaseTrackSegment.SegName))
             div.ChooseRefSegment()
 
     def exportProject(self):
@@ -283,11 +278,10 @@ class ASProject:
                 elem.tail = elem.tail.strip()
         root = sectors.getroot()
 
-    #Generate the Sectors
+        #Generate the Sectors
         for idx,div in enumerate(self.Diverts):
             div.SetSectorName(idx)
             root = div.BuildSector(root)
-            print(div)
             #With a relative to two divert, it will depend if there is an AB/BA segment in the divert or if it is two AA segments
             #If there is an AB or BA segment, we will just use that segment + FromStart/FromEnd +/- 90 to create the sector
             #If it's an AA segment, we'll just make a guess 
@@ -297,7 +291,8 @@ class ASProject:
             xmlStr = minidom.parseString(et.tostring(root,encoding='utf8').decode('utf8')).toprettyxml(indent = "    ")
             file.write(xmlStr)
 
-    
+    def AddDivert(self):
+        pass
 #Take input file
 #Open
 #Loop through each Track
@@ -396,7 +391,7 @@ if __name__ == '__main__':
 
     with open("./Test.sector","w") as file:
         xmlStr = minidom.parseString(et.tostring(root,encoding='utf8').decode('utf8')).toprettyxml(indent = "    ")
-        file.write(xmlStr)
+        #file.write(xmlStr)
 
     with open("./TestInit.st","w") as file:
         file.write("//This file was automatically generated using the Diverter Diagnostic program. Verify that the segment names and assembly name match your project values correctly\n")

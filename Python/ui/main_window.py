@@ -1,4 +1,5 @@
 
+from ui.add_new_implicit import AddImplicitWindow
 from ui.config_select import ConfigSelectWindow
 import wx
 import wx.xrc
@@ -25,7 +26,12 @@ class MainWindow ( wx.Frame ):
         self.Export = wx.MenuItem(self.m_menu1, wx.ID_ANY, "Export", wx.EmptyString, wx.ITEM_NORMAL)
         self.m_menu1.Append( self.Export)
 
+        self.m_menu2 = wx.Menu()
+        self.miAddImplicitDivert = wx.MenuItem( self.m_menu1, wx.ID_ANY, u"Add Implicit Divert", wx.EmptyString, wx.ITEM_NORMAL )
+        self.m_menu2.Append(self.miAddImplicitDivert)
+
         self.m_menubar1.Append( self.m_menu1, u"File" )
+        self.m_menubar1.Append( self.m_menu2, u"Edit" )
 
         self.SetMenuBar( self.m_menubar1 )
 
@@ -88,13 +94,20 @@ class MainWindow ( wx.Frame ):
 
 		# Connect Events
         self.Bind( wx.EVT_MENU, self.onFileImportProjectSelection, id = self.miFileImportProject.GetId() )
+        self.Bind( wx.EVT_MENU, self.onAddImplicitDivert, id = self.miAddImplicitDivert.GetId() )
         self.Bind(wx.EVT_MENU, self.onExportSelection, id= self.Export.GetId()
         )
+
+
     def __del__( self ):
         pass
 
-
 	# Virtual event handlers, overide them in your derived class
+
+    def onAddImplicitDivert(self, event):
+        addImplicit = AddImplicitWindow(self)
+        addImplicit.Show()
+
     def onFileImportProjectSelection( self, event ):
         dlg = wx.DirDialog(None,"Choose directory","",wx.DD_DEFAULT_STYLE | wx.DD_DIR_MUST_EXIST)
         dlg.ShowModal()
@@ -133,6 +146,24 @@ class MainWindow ( wx.Frame ):
     def onGridCellChanged(self,event):
         r = event.GetRow()
         c = event.GetCol()
+        if c == 0 or c == 4:
+            #If the cell that was changed was a segment name, validate the segment name and update the type
+            if c == 0: self.setSpurInformation(self.m_grid1.GetCellValue(r,c),r)
+            if c == 4: self.setSpurInformation(self.m_grid1.GetCellValue(r,c),r)
+            #If the cell that was changed was a position or a reference to, update the diverter information on that index
+            print(self.m_grid1.GetCellValue(r,c))
 
     def onExportSelection(self,event):
         self.Proj.exportProject()
+    
+    def setSpurInformation(self, newValue, row):
+        #If the index is < length, we're adding a new divert
+        if row >= len(self.Proj.Diverts):
+            self.m_grid1.AppendRows(1)
+        #Create a new divert
+        #Needs to set the new segment type
+        #Set the relative to and the position
+        pass
+
+    def setBaseInformation(self,  newValue, row):
+        pass
