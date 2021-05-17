@@ -1,0 +1,17 @@
+VAR
+	pUserData : REFERENCE TO gUserDataType;
+	Vis : McAcpTrakAssemblyVisData;
+	SizeofVis : UDINT := 0;
+	NumVisShuttle : USINT := 0;
+	i : USINT := 0;
+	UserVis : {REDUND_UNREPLICABLE} UserVisTyp;
+	MC_ReadActualPosInfeed : MC_ReadActualPosition;
+	MC_ReadActualPosOutfeed : MC_ReadActualPosition;
+	InfeedMasterPos : LREAL;
+	OutfeedMasterPos : LREAL;
+	plcSimulated : BOOL;
+	DiagUserDataAddress : UDINT;
+	DiagReadUserData : BOOL;
+	DiagUserData : gUserDataType;
+	ShuttleMon : McAcpTrakAssemblyMonData; (*Shuttle monitor interface used for scene viewer*)
+END_VAR

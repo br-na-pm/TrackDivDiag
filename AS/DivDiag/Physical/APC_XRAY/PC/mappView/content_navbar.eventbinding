@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EventBindingSet id="content_navbar_eventbinding" xmlns="http://www.br-automation.com/iat2014/eventbinding/v2" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+    <EventBinding id="EventBinding_1">
+      <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
+      <EventHandler condition="visuId = &quot;devconsole&quot; AND contentId = &quot;content_dashboard&quot;">
+        <Action>
+          <Target xsi:type="widgets.brease.ToggleButton.Action" contentRefId="content_navbar" widgetRefId="loadDashboard">
+            <Method xsi:type="widgets.brease.ToggleButton.Action.SetVisible" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="visuId = &quot;diagconsole&quot; AND contentId = &quot;content_diagnostics_placeholder&quot;">
+        <Sequence>
+          <Step order="0">
+            <Action>
+              <Target xsi:type="widgets.brease.ButtonBar.Action" contentRefId="content_navbar" widgetRefId="ButtonBar1">
+                <Method xsi:type="widgets.brease.ButtonBar.Action.SetSelectedIndex" index="1" />
+              </Target>
+            </Action>
+          </Step>
+          <Step order="1">
+            <Action>
+              <Target xsi:type="clientSystem.Action">
+                <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="content_diagnostics_xray" pageId="page_diagConsole" areaId="area_main" />
+              </Target>
+            </Action>
+          </Step>
+        </Sequence>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadDiagnostic">
+      <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="content_navbar" widgetRefId="loadDiagnostic" event="Click" />
+      <Operand datatype="ANY_STRING" name="pageID">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="::SYSTEM:clientInfo.currentPageId">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="pageID = &quot;page_devConsole&quot;">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="content_diagnostics_xray" pageId="page_devConsole" areaId="area_main" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="pageID = &quot;page_diagConsole&quot;">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="content_diagnostics_xray" pageId="page_diagConsole" areaId="area_main" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadDashboard">
+      <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="content_navbar" widgetRefId="loadDashboard" event="Click" />
+      <Operand datatype="ANY_STRING" name="pageID">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="::SYSTEM:clientInfo.currentPageId">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="pageID = &quot;page_devConsole&quot;">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="content_dashboard" pageId="page_devConsole" areaId="area_main" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadAlarms">
+      <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="content_navbar" widgetRefId="loadAlarm" event="Click" />
+      <Operand datatype="ANY_STRING" name="pageID">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="::SYSTEM:clientInfo.currentPageId">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="pageID = &quot;page_devConsole&quot;">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="content_alarms" pageId="page_devConsole" areaId="area_main" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="pageID = &quot;page_diagConsole&quot;">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="content_alarms" pageId="page_diagConsole" areaId="area_main" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadTrackMap">
+      <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="content_navbar" widgetRefId="loadTrackMap" event="Click" />
+      <Operand datatype="ANY_STRING" name="pageID">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="::SYSTEM:clientInfo.currentPageId">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="pageID = &quot;page_devConsole&quot;">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="content_trackmap" pageId="page_devConsole" areaId="area_main" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="pageID = &quot;page_diagConsole&quot;">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="content_trackmap" pageId="page_diagConsole" areaId="area_main" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+    <EventBinding id="loadLogger">
+      <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="content_navbar" widgetRefId="loadLogbook" event="Click" />
+      <Operand datatype="ANY_STRING" name="pageID">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="::SYSTEM:clientInfo.currentPageId">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="pageID = &quot;page_devConsole&quot;">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="content_logbook" pageId="page_devConsole" areaId="area_main" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="pageID = &quot;page_diagConsole&quot;">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="content_logbook" pageId="page_diagConsole" areaId="area_main" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+	 <EventBinding id="ColorMapVisibility">
+      <Source xsi:type="clientSystem.Event" event="ContentLoaded" />
+      <EventHandler condition="contentId = &quot;content_trackmap&quot; OR contentId = &quot;content_seg_detail&quot;">
+        <Action>
+          <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="content_control" widgetRefId="ColorTrackMap">
+            <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="true" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="contentId &lt;&gt; &quot;content_trackmap&quot; AND contentId &lt;&gt; &quot;content_seg_detail&quot;">
+        <Action>
+          <Target xsi:type="widgets.brease.GroupBox.Action" contentRefId="content_control" widgetRefId="ColorTrackMap">
+            <Method xsi:type="widgets.brease.GroupBox.Action.SetVisible" value="false" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+	<EventBinding id="loadAudit">
+      <Source xsi:type="widgets.brease.ToggleButton.Event" contentRefId="content_navbar" widgetRefId="loadAudit" event="Click" />
+      <Operand datatype="ANY_STRING" name="pageID">
+        <ReadTarget xsi:type="session.VariableAction.Read" refId="::SYSTEM:clientInfo.currentPageId">
+          <Method xsi:type="session.VariableAction.GetValue" />
+        </ReadTarget>
+      </Operand>
+      <EventHandler condition="pageID = &quot;page_devConsole&quot;">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="content_audit" pageId="page_devConsole" areaId="area_main" />
+          </Target>
+        </Action>
+      </EventHandler>
+      <EventHandler condition="pageID = &quot;page_diagConsole&quot;">
+        <Action>
+          <Target xsi:type="clientSystem.Action">
+            <Method xsi:type="clientSystem.Action.LoadContentInArea" contentId="content_audit" pageId="page_diagConsole" areaId="area_main" />
+          </Target>
+        </Action>
+      </EventHandler>
+    </EventBinding>
+	</Bindings>
+</EventBindingSet>

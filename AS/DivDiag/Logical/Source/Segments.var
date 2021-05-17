@@ -1,0 +1,227 @@
+(*MC objects - Main loop*)
+VAR
+	SEG_A_10 : McSegmentType;
+	SEG_A_11 : McSegmentType;
+	SEG_A_12 : McSegmentType;
+	SEG_A_13 : McSegmentType;
+	SEG_A_14 : McSegmentType;
+	SEG_A_15 : McSegmentType;
+	SEG_A_16 : McSegmentType;
+	SEG_A_17 : McSegmentType;
+	SEG_A_18 : McSegmentType;
+	SEG_A_19 : McSegmentType;
+	SEG_A_20 : McSegmentType;
+	SEG_A_21 : McSegmentType;
+	SEG_A_22 : McSegmentType;
+	SEG_A_23 : McSegmentType;
+	SEG_A_24 : McSegmentType;
+	SEG_A_25 : McSegmentType;
+	SEG_A_26 : McSegmentType;
+	SEG_A_27 : McSegmentType;
+	SEG_A_28 : McSegmentType;
+	SEG_A_29 : McSegmentType;
+	SEG_A_30 : McSegmentType;
+	SEG_A_31 : McSegmentType;
+	SEG_A_32 : McSegmentType;
+	SEG_A_33 : McSegmentType;
+	SEG_A_34 : McSegmentType;
+	SEG_A_35 : McSegmentType;
+	SEG_A_36 : McSegmentType;
+	SEG_A_37 : McSegmentType;
+	SEG_A_38 : McSegmentType;
+	SEG_A_39 : McSegmentType;
+	SEG_A_40 : McSegmentType;
+	SEG_A_41 : McSegmentType;
+	SEG_A_42 : McSegmentType;
+	SEG_A_43 : McSegmentType;
+	SEG_A_44 : McSegmentType;
+	SEG_A_45 : McSegmentType;
+	SEG_A_46 : McSegmentType;
+	SEG_A_47 : McSegmentType;
+	SEG_A_48 : McSegmentType;
+	SEG_A_49 : McSegmentType;
+	SEG_A_50 : McSegmentType;
+END_VAR
+(**)
+(*MC objects - B Track QC loop*)
+VAR
+	SEG_B_40 : McSegmentType;
+	SEG_B_41 : McSegmentType;
+	SEG_B_42 : McSegmentType;
+	SEG_B_43 : McSegmentType;
+	SEG_B_44 : McSegmentType;
+	SEG_B_45 : McSegmentType;
+	SEG_B_46 : McSegmentType;
+	SEG_B_47 : McSegmentType;
+	SEG_B_48 : McSegmentType;
+	SEG_B_49 : McSegmentType;
+	SEG_B_50 : McSegmentType;
+	SEG_B_51 : McSegmentType;
+	SEG_B_52 : McSegmentType;
+	SEG_B_53 : McSegmentType;
+	SEG_B_54 : McSegmentType;
+	SEG_B_55 : McSegmentType;
+	SEG_B_56 : McSegmentType;
+	SEG_B_57 : McSegmentType;
+END_VAR
+(**)
+(*MC objects - C Track*)
+VAR
+	SEG_C_20 : McSegmentType;
+	SEG_C_21 : McSegmentType;
+	SEG_C_22 : McSegmentType;
+	SEG_C_23 : McSegmentType;
+	SEG_C_24 : McSegmentType;
+	SEG_C_25 : McSegmentType;
+	SEG_C_26 : McSegmentType;
+	SEG_C_27 : McSegmentType;
+	SEG_C_28 : McSegmentType;
+	SEG_C_29 : McSegmentType;
+	SEG_C_30 : McSegmentType;
+	SEG_C_31 : McSegmentType;
+END_VAR
+(**)
+(*MC objects - D Track*)
+VAR
+	SEG_D_10 : McSegmentType;
+	SEG_D_11 : McSegmentType;
+	SEG_D_12 : McSegmentType;
+	SEG_D_13 : McSegmentType;
+	SEG_D_14 : McSegmentType;
+	SEG_D_15 : McSegmentType;
+	SEG_D_16 : McSegmentType;
+	SEG_D_32 : McSegmentType;
+	SEG_D_33 : McSegmentType;
+	SEG_D_34 : McSegmentType;
+	SEG_D_35 : McSegmentType;
+	SEG_D_36 : McSegmentType;
+	SEG_D_37 : McSegmentType;
+	SEG_D_38 : McSegmentType;
+END_VAR
+(**)
+(*MC objects - Flex track #1 *)
+VAR
+	SEG_E_13 : McSegmentType;
+	SEG_E_14 : McSegmentType;
+	SEG_E_15 : McSegmentType;
+	SEG_E_16 : McSegmentType;
+	SEG_E_17 : McSegmentType;
+	SEG_E_18 : McSegmentType;
+	SEG_E_19 : McSegmentType;
+	SEG_E_20 : McSegmentType;
+	SEG_E_21 : McSegmentType;
+	SEG_E_22 : McSegmentType;
+	SEG_E_23 : McSegmentType;
+	SEG_E_24 : McSegmentType;
+	SEG_E_25 : McSegmentType;
+	SEG_E_26 : McSegmentType;
+	SEG_E_60 : McSegmentType;
+	SEG_E_61 : McSegmentType;
+END_VAR
+(**)
+(*MC objects - Flex #1 OUT*)
+VAR
+	SEG_F_27 : McSegmentType;
+	SEG_F_28 : McSegmentType;
+	SEG_F_29 : McSegmentType;
+	SEG_F_30 : McSegmentType;
+	SEG_F_31 : McSegmentType;
+	SEG_F_32 : McSegmentType;
+	SEG_F_33 : McSegmentType;
+	SEG_F_34 : McSegmentType;
+	SEG_F_35 : McSegmentType;
+	SEG_F_70 : McSegmentType;
+	SEG_F_71 : McSegmentType;
+END_VAR
+(**)
+(*MC objects - Flex #2 IN*)
+VAR
+	SEG_G_10 : McSegmentType;
+	SEG_G_11 : McSegmentType;
+	SEG_G_12 : McSegmentType;
+	SEG_G_13 : McSegmentType;
+	SEG_G_14 : McSegmentType;
+	SEG_G_15 : McSegmentType;
+	SEG_G_16 : McSegmentType;
+	SEG_G_17 : McSegmentType;
+	SEG_G_18 : McSegmentType;
+	SEG_G_19 : McSegmentType;
+END_VAR
+(**)
+(*MC objects - Flex track #2 *)
+VAR
+	SEG_H_10 : McSegmentType;
+	SEG_H_11 : McSegmentType;
+	SEG_H_12 : McSegmentType;
+	SEG_H_13 : McSegmentType;
+	SEG_H_14 : McSegmentType;
+	SEG_H_15 : McSegmentType;
+	SEG_H_16 : McSegmentType;
+	SEG_H_17 : McSegmentType;
+	SEG_H_18 : McSegmentType;
+	SEG_H_19 : McSegmentType;
+	SEG_H_20 : McSegmentType;
+	SEG_H_21 : McSegmentType;
+	SEG_H_22 : McSegmentType;
+	SEG_H_23 : McSegmentType;
+	SEG_H_24 : McSegmentType;
+	SEG_H_25 : McSegmentType;
+	SEG_H_26 : McSegmentType;
+	SEG_H_27 : McSegmentType;
+END_VAR
+(**)
+(*MC objects - Flex #2 OUT*)
+VAR
+	SEG_I_30 : McSegmentType;
+	SEG_I_31 : McSegmentType;
+	SEG_I_32 : McSegmentType;
+	SEG_I_33 : McSegmentType;
+	SEG_I_34 : McSegmentType;
+	SEG_I_35 : McSegmentType;
+END_VAR
+(**)
+(*MC objects - X-ray #1*)
+VAR
+	SEG_J_35 : McSegmentType;
+	SEG_J_36 : McSegmentType;
+	SEG_J_37 : McSegmentType;
+	SEG_J_38 : McSegmentType;
+	SEG_J_39 : McSegmentType;
+	SEG_J_40 : McSegmentType;
+	SEG_J_41 : McSegmentType;
+	SEG_J_42 : McSegmentType;
+END_VAR
+(**)
+(*MC objects - X-ray #2*)
+VAR
+	SEG_K_35 : McSegmentType;
+	SEG_K_36 : McSegmentType;
+	SEG_K_37 : McSegmentType;
+	SEG_K_38 : McSegmentType;
+	SEG_K_39 : McSegmentType;
+	SEG_K_40 : McSegmentType;
+	SEG_K_41 : McSegmentType;
+	SEG_K_42 : McSegmentType;
+END_VAR
+(**)
+(*MC objects - Track L*)
+VAR
+	SEG_L_50 : McSegmentType;
+END_VAR
+(**)
+(*MC objects - Track M*)
+VAR
+	SEG_M_60 : McSegmentType;
+	SEG_M_61 : McSegmentType;
+	SEG_M_62 : McSegmentType;
+	SEG_M_63 : McSegmentType;
+	SEG_M_64 : McSegmentType;
+	SEG_M_65 : McSegmentType;
+	SEG_M_66 : McSegmentType;
+	SEG_M_67 : McSegmentType;
+	SEG_M_68 : McSegmentType;
+	SEG_M_69 : McSegmentType;
+	SEG_M_70 : McSegmentType;
+	SEG_M_71 : McSegmentType;
+	SEG_M_72 : McSegmentType;
+END_VAR

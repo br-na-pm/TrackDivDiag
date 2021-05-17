@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?AutomationStudio FileVersion="4.9"?>
+<BR.AS.HardwareTopology>
+  <TimeStamps>
+    <TimeStamp LogicalPath="PCSim.Hardware.hw" LastWriteTime="05/07/2021 10:35:27" />
+  </TimeStamps>
+  <Modules>
+    <Module Name="PC" Type="PC_any" X="100" Y="100" />
+    <Module Name="5LS182.6-2" Type="5LS182.6-2" X="418" Y="110" />
+  </Modules>
+  <Links />
+  <InfoElements />
+</BR.AS.HardwareTopology>

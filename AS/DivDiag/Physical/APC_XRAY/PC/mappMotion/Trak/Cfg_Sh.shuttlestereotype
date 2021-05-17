@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="ShuttleStereotype_1" Type="shuttlestereotype">
+    <Property ID="MeasurementUnit" Value="5067858" />
+    <Property ID="MeasurementResolution" Value="0.00001" />
+    <Selector ID="MovementLimits" Value="Internal">
+      <Property ID="VelocityIsReadOnly" Value="0" />
+      <Selector ID="Velocity">
+        <Property ID="Velocity" Value="4.0" />
+      </Selector>
+      <Property ID="AccelerationIsReadOnly" Value="0" />
+      <Selector ID="Acceleration">
+        <Property ID="Acceleration" Value="20" />
+      </Selector>
+      <Property ID="DecelerationIsReadOnly" Value="0" />
+      <Selector ID="Deceleration">
+        <Property ID="Deceleration" Value="20" />
+      </Selector>
+      <Property ID="UpdateMode" Value="Immediately" />
+    </Selector>
+    <Selector ID="JerkFilter" Value="Used">
+      <Property ID="JerkTime" Value="0.02" />
+    </Selector>
+    <Group ID="UserData">
+      <Property ID="Size" Value="4" />
+    </Group>
+    <Group ID="CollisionAvoidance">
+      <Selector ID="InitialModelDimensions" Value="UseExplicitValues">
+        <Group ID="Length">
+          <Property ID="ExtentToFront" Value="0.029" />
+          <Property ID="ExtentToBack" Value="0.029" />
+        </Group>
+        <Group ID="Width">
+          <Property ID="Width" Value="0.07" />
+        </Group>
+      </Selector>
+    </Group>
+  </Element>
+</Configuration>

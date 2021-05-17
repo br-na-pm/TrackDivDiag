@@ -1,0 +1,4 @@
+VAR
+	state : SysStateEnum;
+	sysFbs : SysFbsTyp;
+END_VAR

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Package xmlns="http://br-automation.co.at/AS/Package">
+  <Objects>
+    <Object Type="File" Reference="true">\Physical\APC_DIST_OUT\5PC900_TS17_04\mappView\Alarm\alarmHistoryContent.binding</Object>
+    <Object Type="File" Reference="true">\Physical\APC_DIST_OUT\5PC900_TS17_04\mappView\Alarm\mainAlarmContent.binding</Object>
+    <Object Type="File" Reference="true">\Physical\APC_DIST_OUT\5PC900_TS17_04\mappView\Alarm\mainAlarmContent.eventbinding</Object>
+  </Objects>
+</Package>

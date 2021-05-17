@@ -1,0 +1,1544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.9.2.46 FileVersion="4.9"?>
+<Hardware xmlns="http://br-automation.co.at/AS/Hardware">
+  <Module Name="0AC808.9" Type="0AC808.9" Version="1.0.0.0">
+    <Connection Connector="ETH1" TargetModule="5LS182.6-2a" TargetConnector="IF1">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="ETH2" TargetModule="SEG_A_12" TargetConnector="PLK3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="ETH3" TargetModule="SEG_A_22" TargetConnector="PLK3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="ETH4" TargetModule="SEG_A_32" TargetConnector="PLK3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="0AC808.9a" Type="0AC808.9" Version="1.0.0.0">
+    <Connection Connector="ETH1" TargetModule="5LS182.6-2c" TargetConnector="IF1">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="ETH2" TargetModule="SEG_G_10" TargetConnector="PLK3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="ETH3" TargetModule="SEG_H_20" TargetConnector="PLK3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="ETH4" TargetModule="SEG_I_35" TargetConnector="PLK3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="ETH6" TargetModule="SEG_K_39" TargetConnector="PLK3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="0AC808.9c" Type="0AC808.9" Version="1.0.0.0">
+    <Connection Connector="ETH1" TargetModule="5LS182.6-2c" TargetConnector="PLK2">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="ETH2" TargetModule="SEG_D_10" TargetConnector="PLK3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="ETH3" TargetModule="SEG_E_20" TargetConnector="PLK3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="ETH4" TargetModule="SEG_F_35" TargetConnector="PLK3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="ETH6" TargetModule="SEG_J_39" TargetConnector="PLK3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="5LS182.6-2a" Type="5LS182.6-2" Version="1.7.1.0">
+    <Connection Connector="SL" TargetModule="PC" TargetConnector="SL1" />
+    <Connector Name="IF1">
+      <Parameter ID="MtuSize" Value="1500" />
+      <Parameter ID="DNAConfiguration" Value="manual" />
+      <Parameter ID="CycleTime" Value="1600" />
+      <Parameter ID="EplNatSubnet" Value="192.168.102.0" />
+    </Connector>
+    <Parameter ID="Supervision" Value="off" />
+  </Module>
+  <Module Name="5LS182.6-2c" Type="5LS182.6-2" Version="1.7.1.0">
+    <Connection Connector="PLK2" TargetModule="0AC808.9c" TargetConnector="ETH1">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="SL" TargetModule="PC" TargetConnector="SL2" />
+    <Connector Name="IF1">
+      <Parameter ID="DNAConfiguration" Value="manual" />
+      <Parameter ID="CycleTime" Value="1600" />
+      <Parameter ID="NodeDefinition" Value="Software" />
+      <Parameter ID="EplNatSubnet" Value="192.168.104.0" />
+    </Connector>
+  </Module>
+  <Module Name="PC" Type="PC_any" Version="1.1.1.0" OrderNumber="PC">
+    <Connector Name="IF1">
+      <Parameter ID="ActivateDevice" Value="1" />
+      <Parameter ID="ActivateIna" Value="1" />
+      <Parameter ID="DeviceParam" Value="/IR=4 /IO=0x3F8 /CLK=1843200 /IF=1" />
+    </Connector>
+    <Connector Name="IF3">
+      <Parameter ID="InaPort" Value="11159" />
+    </Connector>
+    <Parameter ID="ConfigurationID" Value="Starwheel_XRAY" />
+    <Parameter ID="ConfigVersion" Value="1.0.2" />
+    <Parameter ID="UserPartitionSize" Value="100" />
+    <Parameter ID="UserRamSize" Value="250000" />
+    <Parameter ID="RemMemSize" Value="250000" />
+    <Parameter ID="PermanentPvSize" Value="10000" />
+    <Parameter ID="RemanentGlobalPvSize" Value="10000" />
+    <Parameter ID="VolatileGlobalPvSize" Value="100000" />
+    <Parameter ID="SystemTick" Value="1600" />
+    <Parameter ID="TaskClassIdleTime" Value="1600" />
+    <Parameter ID="Cyclic1Duration" Value="1600" />
+    <Parameter ID="Cyclic1Tolerance" Value="0" />
+    <Parameter ID="Cyclic1Stack" Value="256000" />
+    <Parameter ID="Cyclic2Duration" Value="19200" />
+    <Parameter ID="Cyclic2Tolerance" Value="19200" />
+    <Parameter ID="Cyclic3Duration" Value="49600" />
+    <Parameter ID="Cyclic3Tolerance" Value="49600" />
+    <Parameter ID="Cyclic4Duration" Value="99200" />
+    <Parameter ID="Cyclic4Tolerance" Value="99200" />
+    <Parameter ID="Cyclic6Duration" Value="499200" />
+    <Parameter ID="Cyclic6Tolerance" Value="499200" />
+    <Parameter ID="Cyclic8Duration" Value="9600" />
+    <Group ID="FileDevice1" />
+    <Parameter ID="FileDeviceName1" Value="SvgData" />
+    <Parameter ID="FileDevicePath1" Value="../../../../Logical/Scene/Generated" />
+    <Group ID="FtpUser1" />
+    <Parameter ID="FtpUsername1" Value="BnR" />
+    <Parameter ID="FtpUserPassword1" Value="OwgnRUL028A/e+iGXLfM2NhZbf3ZfVOTPAeyn0eidZE=" Description="password" />
+    <Parameter ID="FtpUserSalt1" Value="LWczKOmt" />
+    <Parameter ID="FTPAccessRight1" Value="0" />
+    <Parameter ID="ActivateOpcUa" Value="1" />
+    <Parameter ID="OpcUaInformationModels_PV_Version" Value="1" />
+  </Module>
+  <Module Name="SEG_A_10" Type="8F1I01.AB2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_39" TargetConnector="PLK2" NodeNumber="10">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_11" TargetConnector="PLK1" NodeNumber="10">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="11" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT105_TO_CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_10" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_11" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_10" TargetConnector="PLK2" NodeNumber="11">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_12" TargetConnector="PLK1" NodeNumber="11">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="12" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_11" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_12" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_11" TargetConnector="PLK2" NodeNumber="12">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_13" TargetConnector="PLK1" NodeNumber="12">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK3" TargetModule="0AC808.9" TargetConnector="ETH2" NodeNumber="12">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_HubPort" Value="0" />
+    <Parameter ID="EPL_DNA_InPort" Value="3" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_12" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_13" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_12" TargetConnector="PLK2" NodeNumber="13">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_14" TargetConnector="PLK1" NodeNumber="13">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="12" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_13" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_14" Type="8F1I01.BA2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_13" TargetConnector="PLK2" NodeNumber="14">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_15" TargetConnector="PLK1" NodeNumber="14">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="13" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR_TO_STRAIGHT105" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_14" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_15" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_14" TargetConnector="PLK2" NodeNumber="15">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_16" TargetConnector="PLK1" NodeNumber="15">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="14" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_15" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_16" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_15" TargetConnector="PLK2" NodeNumber="16">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_17" TargetConnector="PLK1" NodeNumber="16">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="15" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_16" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_17" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_16" TargetConnector="PLK2" NodeNumber="17">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="16" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_17" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_18" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK2" TargetModule="SEG_A_19" TargetConnector="PLK1" NodeNumber="18">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="19" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_18" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_19" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_18" TargetConnector="PLK2" NodeNumber="19">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_20" TargetConnector="PLK1" NodeNumber="19">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="20" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_19" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_20" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_19" TargetConnector="PLK2" NodeNumber="20">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_21" TargetConnector="PLK1" NodeNumber="20">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="21" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_20" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_21" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_20" TargetConnector="PLK2" NodeNumber="21">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_22" TargetConnector="PLK1" NodeNumber="21">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="22" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_21" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_22" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_21" TargetConnector="PLK2" NodeNumber="22">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_23" TargetConnector="PLK1" NodeNumber="22">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK3" TargetModule="0AC808.9" TargetConnector="ETH3" NodeNumber="22">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_HubPort" Value="0" />
+    <Parameter ID="EPL_DNA_InPort" Value="3" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_22" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_23" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_22" TargetConnector="PLK2" NodeNumber="23">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_24" TargetConnector="PLK1" NodeNumber="23">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="22" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_23" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_24" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_23" TargetConnector="PLK2" NodeNumber="24">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_25" TargetConnector="PLK1" NodeNumber="24">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="23" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_24" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_25" Type="8F1I01.AB2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_24" TargetConnector="PLK2" NodeNumber="25">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_26" TargetConnector="PLK1" NodeNumber="25">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="24" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT105_TO_CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_25" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_26" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_25" TargetConnector="PLK2" NodeNumber="26">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_27" TargetConnector="PLK1" NodeNumber="26">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="25" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_26" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_27" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_26" TargetConnector="PLK2" NodeNumber="27">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="26" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_27" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_28" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK2" TargetModule="SEG_A_29" TargetConnector="PLK1" NodeNumber="28">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="29" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_28" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_29" Type="8F1I01.BA2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_28" TargetConnector="PLK2" NodeNumber="29">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_30" TargetConnector="PLK1" NodeNumber="29">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="30" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR_TO_STRAIGHT105" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_29" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_30" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_29" TargetConnector="PLK2" NodeNumber="30">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_31" TargetConnector="PLK1" NodeNumber="30">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="31" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_30" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_31" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_30" TargetConnector="PLK2" NodeNumber="31">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_33" TargetConnector="PLK1" NodeNumber="31">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="32" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_31" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_32" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_33" TargetConnector="PLK2" NodeNumber="32">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_34" TargetConnector="PLK1" NodeNumber="32">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK3" TargetModule="0AC808.9" TargetConnector="ETH4" NodeNumber="32">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_HubPort" Value="0" />
+    <Parameter ID="EPL_DNA_InPort" Value="3" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_32" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_33" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_31" TargetConnector="PLK2" NodeNumber="33">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_32" TargetConnector="PLK1" NodeNumber="33">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="32" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_33" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_34" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_32" TargetConnector="PLK2" NodeNumber="34">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_35" TargetConnector="PLK1" NodeNumber="34">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="33" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_34" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_35" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_34" TargetConnector="PLK2" NodeNumber="35">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_36" TargetConnector="PLK1" NodeNumber="35">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="34" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_35" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_36" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_35" TargetConnector="PLK2" NodeNumber="36">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="35" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_36" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_37" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK2" TargetModule="SEG_A_38" TargetConnector="PLK1" NodeNumber="37">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="38" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_37" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_38" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_37" TargetConnector="PLK2" NodeNumber="38">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_39" TargetConnector="PLK1" NodeNumber="38">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="39" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_38" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_A_39" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_A_38" TargetConnector="PLK2" NodeNumber="39">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_A_10" TargetConnector="PLK1" NodeNumber="39">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="10" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_A_39" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_D_10" Type="8F1I01.AB2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK2" TargetModule="SEG_D_11" TargetConnector="PLK1" NodeNumber="3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK3" TargetModule="0AC808.9c" TargetConnector="ETH2" NodeNumber="3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_HubPort" Value="0" />
+    <Parameter ID="EPL_DNA_InPort" Value="3" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT105_TO_CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_D_10" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_D_11" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_D_10" TargetConnector="PLK2" NodeNumber="4">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_D_12" TargetConnector="PLK1" NodeNumber="4">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="10" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_D_11" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_D_12" Type="8F1I01.BA2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_D_11" TargetConnector="PLK2" NodeNumber="5">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_D_13" TargetConnector="PLK1" NodeNumber="5">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="11" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR_TO_STRAIGHT105" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_D_12" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_D_13" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_D_12" TargetConnector="PLK2" NodeNumber="6">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_D_14" TargetConnector="PLK1" NodeNumber="6">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="12" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_D_13" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_D_14" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_D_13" TargetConnector="PLK2" NodeNumber="7">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_D_15" TargetConnector="PLK1" NodeNumber="7">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="13" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_D_14" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_D_15" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_D_14" TargetConnector="PLK2" NodeNumber="8">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="14" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_D_15" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_E_16" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK2" TargetModule="SEG_E_17" TargetConnector="PLK1" NodeNumber="28">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="17" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_E_16" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_E_17" Type="8F1I01.BA2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_E_16" TargetConnector="PLK2" NodeNumber="27">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_E_18" TargetConnector="PLK1" NodeNumber="27">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="18" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR_TO_STRAIGHT105" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_E_17" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_E_18" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_E_17" TargetConnector="PLK2" NodeNumber="26">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_E_19" TargetConnector="PLK1" NodeNumber="26">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="19" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_E_18" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_E_19" Type="8F1I01.AB2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_E_18" TargetConnector="PLK2" NodeNumber="25">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_E_20" TargetConnector="PLK1" NodeNumber="25">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="20" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT105_TO_CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_E_19" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_E_20" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_E_19" TargetConnector="PLK2" NodeNumber="9">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_E_21" TargetConnector="PLK1" NodeNumber="9">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK3" TargetModule="0AC808.9c" TargetConnector="ETH3" NodeNumber="9">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_HubPort" Value="0" />
+    <Parameter ID="EPL_DNA_InPort" Value="3" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_E_20" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_E_21" Type="8F1I01.BA2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_E_20" TargetConnector="PLK2" NodeNumber="29">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_E_22" TargetConnector="PLK1" NodeNumber="29">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="20" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR_TO_STRAIGHT105" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_E_21" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_E_22" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_E_21" TargetConnector="PLK2" NodeNumber="43">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_E_23" TargetConnector="PLK1" NodeNumber="43">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="21" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_E_22" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_E_23" Type="8F1I01.AB2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_E_22" TargetConnector="PLK2" NodeNumber="44">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_E_24" TargetConnector="PLK1" NodeNumber="44">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="22" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT105_TO_CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_E_23" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_E_24" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_E_23" TargetConnector="PLK2" NodeNumber="45">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="23" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_E_24" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_F_30" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK2" TargetModule="SEG_F_31" TargetConnector="PLK1" NodeNumber="51">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="31" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_F_30" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_F_31" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_F_30" TargetConnector="PLK2" NodeNumber="50">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_F_32" TargetConnector="PLK1" NodeNumber="50">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="32" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_F_31" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_F_32" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_F_31" TargetConnector="PLK2" NodeNumber="49">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_F_33" TargetConnector="PLK1" NodeNumber="49">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="33" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_F_32" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_F_33" Type="8F1I01.AB2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_F_32" TargetConnector="PLK2" NodeNumber="48">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_F_34" TargetConnector="PLK1" NodeNumber="48">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="34" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT105_TO_CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_F_33" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_F_34" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_F_33" TargetConnector="PLK2" NodeNumber="47">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_F_35" TargetConnector="PLK1" NodeNumber="47">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="35" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_F_34" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_F_35" Type="8F1I01.BA2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_F_34" TargetConnector="PLK2" NodeNumber="46">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK3" TargetModule="0AC808.9c" TargetConnector="ETH4" NodeNumber="46">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_HubPort" Value="0" />
+    <Parameter ID="EPL_DNA_InPort" Value="3" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR_TO_STRAIGHT105" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_F_35" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_G_10" Type="8F1I01.AB2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK2" TargetModule="SEG_G_11" TargetConnector="PLK1" NodeNumber="10">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK3" TargetModule="0AC808.9a" TargetConnector="ETH2" NodeNumber="10">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_HubPort" Value="0" />
+    <Parameter ID="EPL_DNA_InPort" Value="3" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT105_TO_CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_G_10" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_G_11" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_G_10" TargetConnector="PLK2" NodeNumber="11">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_G_12" TargetConnector="PLK1" NodeNumber="11">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="10" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_G_11" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_G_12" Type="8F1I01.BA2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_G_11" TargetConnector="PLK2" NodeNumber="12">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_G_13" TargetConnector="PLK1" NodeNumber="12">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="11" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR_TO_STRAIGHT105" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_G_12" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_G_13" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_G_12" TargetConnector="PLK2" NodeNumber="13">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_G_14" TargetConnector="PLK1" NodeNumber="13">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="12" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_G_13" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_G_14" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_G_13" TargetConnector="PLK2" NodeNumber="14">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_G_15" TargetConnector="PLK1" NodeNumber="14">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="13" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_G_14" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_G_15" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_G_14" TargetConnector="PLK2" NodeNumber="15">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="14" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_G_15" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_H_16" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK2" TargetModule="SEG_H_17" TargetConnector="PLK1" NodeNumber="16">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="17" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_H_16" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_H_17" Type="8F1I01.BA2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_H_16" TargetConnector="PLK2" NodeNumber="17">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_H_18" TargetConnector="PLK1" NodeNumber="17">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="18" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR_TO_STRAIGHT105" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_H_17" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_H_18" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_H_17" TargetConnector="PLK2" NodeNumber="18">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_H_19" TargetConnector="PLK1" NodeNumber="18">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="19" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_H_18" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_H_19" Type="8F1I01.AB2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_H_18" TargetConnector="PLK2" NodeNumber="19">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_H_20" TargetConnector="PLK1" NodeNumber="19">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="20" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT105_TO_CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_H_19" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_H_20" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_H_19" TargetConnector="PLK2" NodeNumber="20">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_H_21" TargetConnector="PLK1" NodeNumber="20">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK3" TargetModule="0AC808.9a" TargetConnector="ETH3" NodeNumber="20">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_HubPort" Value="0" />
+    <Parameter ID="EPL_DNA_InPort" Value="3" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_H_20" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_H_21" Type="8F1I01.BA2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_H_20" TargetConnector="PLK2" NodeNumber="21">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_H_22" TargetConnector="PLK1" NodeNumber="21">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="20" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR_TO_STRAIGHT105" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_H_21" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_H_22" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_H_21" TargetConnector="PLK2" NodeNumber="22">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_H_23" TargetConnector="PLK1" NodeNumber="22">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="21" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_H_22" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_H_23" Type="8F1I01.AB2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_H_22" TargetConnector="PLK2" NodeNumber="23">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_H_24" TargetConnector="PLK1" NodeNumber="23">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="22" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT105_TO_CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_H_23" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_H_24" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_H_23" TargetConnector="PLK2" NodeNumber="24">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="23" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_H_24" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_I_30" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK2" TargetModule="SEG_I_31" TargetConnector="PLK1" NodeNumber="30">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="31" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_I_30" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_I_31" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_I_30" TargetConnector="PLK2" NodeNumber="31">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_I_32" TargetConnector="PLK1" NodeNumber="31">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="32" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_I_31" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_I_32" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_I_31" TargetConnector="PLK2" NodeNumber="32">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_I_33" TargetConnector="PLK1" NodeNumber="32">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="33" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_I_32" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_I_33" Type="8F1I01.AB2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_I_32" TargetConnector="PLK2" NodeNumber="33">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_I_34" TargetConnector="PLK1" NodeNumber="33">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="34" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT105_TO_CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_I_33" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_I_34" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_I_33" TargetConnector="PLK2" NodeNumber="34">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_I_35" TargetConnector="PLK1" NodeNumber="34">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="35" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_I_34" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_I_35" Type="8F1I01.BA2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_I_34" TargetConnector="PLK2" NodeNumber="35">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK3" TargetModule="0AC808.9a" TargetConnector="ETH4" NodeNumber="35">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_HubPort" Value="0" />
+    <Parameter ID="EPL_DNA_InPort" Value="3" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR_TO_STRAIGHT105" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_I_35" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_J_36" Type="8F1I01.BA2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK2" TargetModule="SEG_J_37" TargetConnector="PLK1" NodeNumber="55">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="37" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR_TO_STRAIGHT105" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_J_36" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_J_37" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_J_36" TargetConnector="PLK2" NodeNumber="54">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_J_38" TargetConnector="PLK1" NodeNumber="54">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="38" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_J_37" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_J_38" Type="8F1I01.AB2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_J_37" TargetConnector="PLK2" NodeNumber="53">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_J_39" TargetConnector="PLK1" NodeNumber="53">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="39" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT105_TO_CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_J_38" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_J_39" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_J_38" TargetConnector="PLK2" NodeNumber="52">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_J_40" TargetConnector="PLK1" NodeNumber="52">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK3" TargetModule="0AC808.9c" TargetConnector="ETH6" NodeNumber="52">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_HubPort" Value="0" />
+    <Parameter ID="EPL_DNA_InPort" Value="3" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_J_39" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_J_40" Type="8F1I01.BA2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_J_39" TargetConnector="PLK2" NodeNumber="56">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_J_41" TargetConnector="PLK1" NodeNumber="56">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="39" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR_TO_STRAIGHT105" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_J_40" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_J_41" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_J_40" TargetConnector="PLK2" NodeNumber="57">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_J_42" TargetConnector="PLK1" NodeNumber="57">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="40" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_J_41" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_J_42" Type="8F1I01.AB2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_J_41" TargetConnector="PLK2" NodeNumber="58">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="41" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT105_TO_CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_J_42" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_K_36" Type="8F1I01.BA2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK2" TargetModule="SEG_K_37" TargetConnector="PLK1" NodeNumber="36">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="37" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR_TO_STRAIGHT105" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_K_36" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_K_37" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_K_36" TargetConnector="PLK2" NodeNumber="37">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_K_38" TargetConnector="PLK1" NodeNumber="37">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="38" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_K_37" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_K_38" Type="8F1I01.AB2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_K_37" TargetConnector="PLK2" NodeNumber="38">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_K_39" TargetConnector="PLK1" NodeNumber="38">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="39" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT105_TO_CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_K_38" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_K_39" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_K_38" TargetConnector="PLK2" NodeNumber="39">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_K_40" TargetConnector="PLK1" NodeNumber="39">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK3" TargetModule="0AC808.9a" TargetConnector="ETH6" NodeNumber="39">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_HubPort" Value="0" />
+    <Parameter ID="EPL_DNA_InPort" Value="3" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT660" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_K_39" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_K_40" Type="8F1I01.BA2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_K_39" TargetConnector="PLK2" NodeNumber="40">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_K_41" TargetConnector="PLK1" NodeNumber="40">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="39" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR_TO_STRAIGHT105" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_K_40" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_K_41" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_K_40" TargetConnector="PLK2" NodeNumber="41">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="SEG_K_42" TargetConnector="PLK1" NodeNumber="41">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="40" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_K_41" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+  <Module Name="SEG_K_42" Type="8F1I01.AB2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="SEG_K_41" TargetConnector="PLK2" NodeNumber="42">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="EnableDNA" Value="on" />
+    <Parameter ID="EPL_DNA_Head" Value="0" />
+    <Parameter ID="EPL_DNA_Predecessor" Value="41" />
+    <Parameter ID="EPL_DNA_HubPort" Value="1" />
+    <Parameter ID="EPL_DNA_InPort" Value="2" />
+    <Parameter ID="McTypeID" Location="DriveConfiguration" Value="LLMConfig" />
+    <Parameter ID="Shape" Location="DriveConfiguration/Segment" Value="STRAIGHT105_TO_CIRCULAR" />
+    <Parameter ID="SegmentReference" Location="DriveConfiguration/Segment" Value="SEG_K_42" />
+    <Parameter ID="StopReaction" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+    <Parameter ID="SpeedFilter" Location="DriveConfiguration/Segment" Value="UseAssemblySetting" />
+  </Module>
+</Hardware>

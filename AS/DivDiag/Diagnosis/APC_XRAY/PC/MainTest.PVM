@@ -1,0 +1,11 @@
+WATCH Ver=2.00 PLCName=PLC1 CPUName=CPU TaskName=MainTest 
+Position X=0 Y=0 Width=0 Height=0 TabWidth Name=200 Type=100 Scope=60 Force=60 Index=3 ASCIIString=0
+                                    name                                     type force                                                            value level type len format place expand specs
+                                   state                                     DINT    0 "                                                               4"    0    4    1   10    1    0 e,0,SYS_
+
+                                  gSysIf                                 SysIfTyp    0 "                                                               *"    0   24    1    0    0    1         
+                                     Cmd                              SysIfCmdTyp    0 "                                                               *"    1   24    1    0    0    1         
+                                 PowerOn                                     BOOL    0 "                                                            TRUE"    2    1    1    2    0    0         
+                                     Sts                              SysIfStsTyp    0 "                                                               *"    1   24    1    0    0    1         
+                                 Powered                                     BOOL    0 "                                                            TRUE"    2    1    1    2    0    0         
+                            ShuttleAdded                                     BOOL    0 "                                                            TRUE"    2    1    1    2    0    0         

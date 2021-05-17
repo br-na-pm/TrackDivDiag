@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <Element ID="ProcessPointList_Outfeed" Type="processpointlist">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcPrcTrackAOutfeedCam" />
+      <Property ID="SectorRef" Value="gMcSecTrackAOutfeed" />
+      <Property ID="Position" Value="0.2" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+    <Selector ID="ProcessPoint[1]">
+      <Property ID="Name" Value="gMcPrcTrackAOutfeedVisTrig" />
+      <Property ID="SectorRef" Value="gMcSecTrackAOutfeed" />
+      <Property ID="Position" Value="0.793388599952502" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+    <Selector ID="ProcessPoint[2]">
+      <Property ID="Name" Value="gMcPrcTrackAOutfeedTangent" />
+      <Property ID="SectorRef" Value="gMcSecTrackAOutfeed" />
+      <Property ID="Position" Value="0.94900000095367432" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+    <Selector ID="ProcessPoint[3]">
+      <Property ID="Name" Value="gMcPrcTrackAOutfeedRelease" />
+      <Property ID="SectorRef" Value="gMcSecTrackAOutfeed" />
+      <Property ID="Position" Value="1.25" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+    <Selector ID="ProcessPoint[4]">
+      <Property ID="Name" Value="gMcPrcTrackAOutfeedBackup1" />
+      <Property ID="SectorRef" Value="gMcSecTrackAOutfeed" />
+      <Property ID="Position" Value="1.42" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+    <Selector ID="ProcessPoint[5]">
+      <Property ID="Name" Value="gMcPrcTrackAOutfeedBackup2" />
+      <Property ID="SectorRef" Value="gMcSecTrackAOutfeed" />
+      <Property ID="Position" Value="1.52" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+    <Selector ID="ProcessPoint[6]">
+      <Property ID="Name" Value="gMcPrcTrackAOutfeedRedirect" />
+      <Property ID="SectorRef" Value="gMcSecTrackAOutfeed" />
+      <Property ID="Position" Value="0.001" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+  </Element>
+  <Element ID="ProcessPointList_Infeed" Type="processpointlist">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcPrcTrackAInfeedCam" />
+      <Property ID="SectorRef" Value="gMcSecTrackAInfeed" />
+      <Property ID="Position" Value="0.1" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+    <Selector ID="ProcessPoint[1]">
+      <Property ID="Name" Value="gMcPrcTrackAInfeedVisTrig" />
+      <Property ID="SectorRef" Value="gMcSecTrackAInfeed" />
+      <Property ID="Position" Value="0.69284954648332477" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+    <Selector ID="ProcessPoint[2]">
+      <Property ID="Name" Value="gMcPrcTrackAInfeedTangent" />
+      <Property ID="SectorRef" Value="gMcSecTrackAInfeed" />
+      <Property ID="Position" Value="0.8609351" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+    <Selector ID="ProcessPoint[3]">
+      <Property ID="Name" Value="gMcPrcTrackAInfeedRelease" />
+      <Property ID="SectorRef" Value="gMcSecTrackAInfeed" />
+      <Property ID="Position" Value="1.05" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+    <Selector ID="ProcessPoint[4]">
+      <Property ID="Name" Value="gMcPrcTrackAInfeedBackup1" />
+      <Property ID="SectorRef" Value="gMcSecTrackAInfeed" />
+      <Property ID="Position" Value="0.1" />
+      <Property ID="PositionRelativeTo" Value="FromEnd" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+    <Selector ID="ProcessPoint[5]">
+      <Property ID="Name" Value="gMcPrcTrackAInfeedBackup2" />
+      <Property ID="SectorRef" Value="gMcSecTrackAInfeed" />
+      <Property ID="PositionRelativeTo" Value="FromEnd" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+    <Selector ID="ProcessPoint[6]">
+      <Property ID="Name" Value="gMcPrcTrackAInfeedRedirect" />
+      <Property ID="SectorRef" Value="gMcSecTrackAInfeed" />
+      <Property ID="Position" Value="0.001" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+  </Element>
+  <Element ID="ProcessPointList_TrackEFlexA" Type="processpointlist">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcPrcTrackEFlexA0" />
+      <Property ID="SectorRef" Value="gMcSecTrackEFlexA" />
+      <Property ID="Position" Value="0.001" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+  </Element>
+  <Element ID="ProcessPointList_TrackEFlexB" Type="processpointlist">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcPrcTrackEFlexB0" />
+      <Property ID="SectorRef" Value="gMcSecTrackEFlexB" />
+      <Property ID="Position" Value="0.001" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+  </Element>
+  <Element ID="ProcessPointList_TrackEFlexC" Type="processpointlist">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcPrcTrackEFlexC0" />
+      <Property ID="SectorRef" Value="gMcSecTrackEFlexC" />
+      <Property ID="Position" Value="0.001" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+  </Element>
+  <Element ID="ProcessPointList_TrackEFlexD" Type="processpointlist">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcPrcTrackEFlexD0" />
+      <Property ID="SectorRef" Value="gMcSecTrackEFlexD" />
+      <Property ID="Position" Value="0.001" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+    <Selector ID="ProcessPoint[1]">
+      <Property ID="Name" Value="gMcPrcTrackFlexLPJ" />
+      <Property ID="SectorRef" Value="gMcSecTrackEFlexD" />
+      <Property ID="Position" Value="0.120" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+  </Element>
+  <Element ID="ProcessPointList_TrackEFlexE" Type="processpointlist">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcPrcTrackEFlexE0" />
+      <Property ID="SectorRef" Value="gMcSecTrackEFlexE" />
+      <Property ID="Position" Value="0.330" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+    <Selector ID="ProcessPoint[1]">
+      <Property ID="Name" Value="gMcPrcTrackFlexLPE" />
+      <Property ID="SectorRef" Value="gMcSecTrackEFlexE" />
+      <Property ID="Position" Value="0.200" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+  </Element>
+  <Element ID="ProcessPointList_TrackHFlexA" Type="processpointlist">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcPrcTrackHFlexA0" />
+      <Property ID="SectorRef" Value="gMcSecTrackHFlexA" />
+      <Property ID="Position" Value="0.001" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+  </Element>
+  <Element ID="ProcessPointList_TrackHFlexB" Type="processpointlist">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcPrcTrackHFlexB0" />
+      <Property ID="SectorRef" Value="gMcSecTrackHFlexB" />
+      <Property ID="Position" Value="0.001" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+  </Element>
+  <Element ID="ProcessPointList_TrackHFlexC" Type="processpointlist">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcPrcTrackHFlexC0" />
+      <Property ID="SectorRef" Value="gMcSecTrackHFlexC" />
+      <Property ID="Position" Value="0.001" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+  </Element>
+  <Element ID="ProcessPointList_TrackHFlexD" Type="processpointlist">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcPrcTrackHFlexD0" />
+      <Property ID="SectorRef" Value="gMcSecTrackHFlexD" />
+      <Property ID="Position" Value="0.001" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+    <Selector ID="ProcessPoint[1]">
+      <Property ID="Name" Value="gMcPrcTrackFlexLPK" />
+      <Property ID="SectorRef" Value="gMcSecTrackHFlexD" />
+      <Property ID="Position" Value="0.120" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+  </Element>
+  <Element ID="ProcessPointList_TrackHFlexE" Type="processpointlist">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcPrcTrackHFlexE0" />
+      <Property ID="SectorRef" Value="gMcSecTrackHFlexE" />
+      <Property ID="Position" Value="0.330" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+    <Selector ID="ProcessPoint[1]">
+      <Property ID="Name" Value="gMcPrcTrackFlexLPH" />
+      <Property ID="SectorRef" Value="gMcSecTrackHFlexE" />
+      <Property ID="Position" Value="0.200" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+  </Element>
+  <Element ID="ProcessPointList_OutBuff" Type="processpointlist">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcPrcTrackAOutBuffStart" />
+      <Property ID="SectorRef" Value="gMcSecTrackAOutBuff" />
+      <Property ID="Position" Value="0.001" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+    <Selector ID="ProcessPoint[1]">
+      <Property ID="Name" Value="gMcPrcTrackAOutBuffEnd" />
+      <Property ID="SectorRef" Value="gMcSecTrackAOutBuff" />
+      <Property ID="Position" Value="0.001" />
+      <Property ID="PositionRelativeTo" Value="FromEnd" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+  </Element>
+  <Element ID="ProcessPointList_InBuff" Type="processpointlist">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcPrcTrackAInBuffStart" />
+      <Property ID="SectorRef" Value="gMcSecTrackAInBuff" />
+      <Property ID="Position" Value="0.300" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+    <Selector ID="ProcessPoint[1]">
+      <Property ID="Name" Value="gMcPrcTrackAInBuffEnd" />
+      <Property ID="SectorRef" Value="gMcSecTrackAInBuff" />
+      <Property ID="Position" Value="0.001" />
+      <Property ID="PositionRelativeTo" Value="FromEnd" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+    <Selector ID="ProcessPoint[2]">
+      <Property ID="Name" Value="gMcPrcTrackAInBarrier" />
+      <Property ID="SectorRef" Value="gMcSecTrackAInBuff" />
+      <Property ID="Position" Value="0.560" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+  </Element>
+  <Element ID="ProcessPointList_TrackHExMerge" Type="processpointlist" Description="PP's for Exclusion zone at trak H between merge A and I">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcPrcH_Merge_A_Start" />
+      <Property ID="SectorRef" Value="gMcSecTrackA_Mer_A" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+    <Selector ID="ProcessPoint[1]">
+      <Property ID="Name" Value="gMcPrcH_Merge_I_Start" />
+      <Property ID="SectorRef" Value="gMcSecTrackA_Mer_I" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+    <Selector ID="ProcessPoint[2]">
+      <Property ID="Name" Value="gMcPrcH_Merge_End" />
+      <Property ID="SectorRef" Value="gMcSecTrackA_Mer_A" />
+      <Property ID="PositionRelativeTo" Value="FromEnd" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+  </Element>
+  <Element ID="ProcessPointList_TrackHExDivert" Type="processpointlist" Description="PP's for Exclusion zone at trak H between divert at I and K">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcPrcH_Divert_Start" />
+      <Property ID="SectorRef" Value="gMcSecTrackA_Div_I" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+    <Selector ID="ProcessPoint[1]">
+      <Property ID="Name" Value="gMcPrcH_Divert_I_End" />
+      <Property ID="SectorRef" Value="gMcSecTrackA_Div_I" />
+      <Property ID="PositionRelativeTo" Value="FromEnd" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+    <Selector ID="ProcessPoint[2]">
+      <Property ID="Name" Value="gMcPrcH_Divert_K_End" />
+      <Property ID="SectorRef" Value="gMcSecTrackA_Div_K" />
+      <Property ID="PositionRelativeTo" Value="FromEnd" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+  </Element>
+  <Element ID="ProcessPointList_TrackEExMerJtoD" Type="processpointlist" Description="PP's for Exclusion zone at trak H between merge A and I">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcPrcTrackE_Mer_D_Start" />
+      <Property ID="SectorRef" Value="gMcSecTrackE_Mer_D" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+    <Selector ID="ProcessPoint[1]">
+      <Property ID="Name" Value="gMcPrcTrackE_Mer_J_Start" />
+      <Property ID="SectorRef" Value="gMcSecTrackE_Mer_J" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+    <Selector ID="ProcessPoint[2]">
+      <Property ID="Name" Value="gMcPrcTrackE_Mer_D_End" />
+      <Property ID="SectorRef" Value="gMcSecTrackE_Mer_D" />
+      <Property ID="PositionRelativeTo" Value="FromEnd" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+  </Element>
+  <Element ID="ProcessPointList_TrackHExMerKtoG" Type="processpointlist" Description="PP's for Exclusion zone at trak H between merge A and I">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcPrcTrackH_Mer_G_Start" />
+      <Property ID="SectorRef" Value="gMcSecTrackH_Mer_G" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+    <Selector ID="ProcessPoint[1]">
+      <Property ID="Name" Value="gMcPrcTrackH_Mer_K_Start" />
+      <Property ID="SectorRef" Value="gMcSecTrackH_Mer_K" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+    <Selector ID="ProcessPoint[2]">
+      <Property ID="Name" Value="gMcPrcTrackH_Mer_G_End" />
+      <Property ID="SectorRef" Value="gMcSecTrackH_Mer_G" />
+      <Property ID="PositionRelativeTo" Value="FromEnd" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="On" />
+    </Selector>
+  </Element>
+  <Element ID="ProcessPointList_TrackEFlexCnt" Type="processpointlist">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcSecTrackEFlexCntStart" />
+      <Property ID="SectorRef" Value="gMcSecTrackEFlexCnt" />
+      <Property ID="Position" Value="0.001" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+    <Selector ID="ProcessPoint[1]">
+      <Property ID="Name" Value="gMcSecTrackEFlexCntEnd" />
+      <Property ID="SectorRef" Value="gMcSecTrackEFlexCnt" />
+      <Property ID="Position" Value="0.001" />
+      <Property ID="PositionRelativeTo" Value="FromEnd" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+  </Element>
+  <Element ID="ProcessPointList_TrackHFlexCnt" Type="processpointlist">
+    <Selector ID="ProcessPoint[0]">
+      <Property ID="Name" Value="gMcSecTrackHFlexCntStart" />
+      <Property ID="SectorRef" Value="gMcSecTrackHFlexCnt" />
+      <Property ID="Position" Value="0.001" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+    <Selector ID="ProcessPoint[1]">
+      <Property ID="Name" Value="gMcSecTrackHFlexCntEnd" />
+      <Property ID="SectorRef" Value="gMcSecTrackHFlexCnt" />
+      <Property ID="Position" Value="0.001" />
+      <Property ID="PositionRelativeTo" Value="FromEnd" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+  </Element>
+</Configuration>
