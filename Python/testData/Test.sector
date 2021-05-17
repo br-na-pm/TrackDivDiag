@@ -1,0 +1,559 @@
+<?xml version="1.0" ?>
+<Configuration>
+    <Element ID="gMcSecTrackA" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="SEG_A_39"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+            <Group ID="IntermediateSegments">
+                <Property ID="SegmentRef[1]" Value="SEG_A_38"/>
+                <Property ID="SegmentRef[2]" Value="SEG_A_37"/>
+                <Property ID="SegmentRef[3]" Value="SEG_A_36"/>
+                <Property ID="SegmentRef[4]" Value="SEG_A_35"/>
+                <Property ID="SegmentRef[5]" Value="SEG_A_34"/>
+                <Property ID="SegmentRef[6]" Value="SEG_A_33"/>
+                <Property ID="SegmentRef[7]" Value="SEG_A_32"/>
+                <Property ID="SegmentRef[8]" Value="SEG_A_31"/>
+                <Property ID="SegmentRef[9]" Value="SEG_A_30"/>
+                <Property ID="SegmentRef[10]" Value="SEG_A_29"/>
+                <Property ID="SegmentRef[11]" Value="SEG_A_28"/>
+                <Property ID="SegmentRef[12]" Value="SEG_A_27"/>
+                <Property ID="SegmentRef[13]" Value="SEG_A_26"/>
+                <Property ID="SegmentRef[14]" Value="SEG_A_25"/>
+                <Property ID="SegmentRef[15]" Value="SEG_A_24"/>
+                <Property ID="SegmentRef[16]" Value="SEG_A_23"/>
+                <Property ID="SegmentRef[17]" Value="SEG_A_22"/>
+                <Property ID="SegmentRef[18]" Value="SEG_A_21"/>
+                <Property ID="SegmentRef[19]" Value="SEG_A_20"/>
+                <Property ID="SegmentRef[20]" Value="SEG_A_19"/>
+                <Property ID="SegmentRef[21]" Value="SEG_A_18"/>
+                <Property ID="SegmentRef[22]" Value="SEG_A_17"/>
+                <Property ID="SegmentRef[23]" Value="SEG_A_16"/>
+                <Property ID="SegmentRef[24]" Value="SEG_A_15"/>
+                <Property ID="SegmentRef[25]" Value="SEG_A_14"/>
+                <Property ID="SegmentRef[26]" Value="SEG_A_13"/>
+                <Property ID="SegmentRef[27]" Value="SEG_A_12"/>
+                <Property ID="SegmentRef[28]" Value="SEG_A_11"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="SEG_A_10"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackATrans1" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="SEG_A_36"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="SEG_A_36"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackATrans2" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="SEG_A_33"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="SEG_A_33"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackAInfeed" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="SEG_A_26"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+            <Group ID="IntermediateSegments">
+                <Property ID="SegmentRef[1]" Value="SEG_A_25"/>
+                <Property ID="SegmentRef[2]" Value="SEG_A_24"/>
+                <Property ID="SegmentRef[3]" Value="SEG_A_23"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="SEG_A_22"/>
+                <Property ID="Position" Value="0"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackAOutfeed" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="SEG_A_17"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+            <Group ID="IntermediateSegments">
+                <Property ID="SegmentRef[1]" Value="SEG_A_16"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="SEG_A_15"/>
+                <Property ID="Position" Value="0.00"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackEFlex" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="SEG_D_10"/>
+            </Group>
+            <Group ID="IntermediateSegments">
+                <Property ID="SegmentRef[1]" Value="SEG_D_11"/>
+                <Property ID="SegmentRef[2]" Value="SEG_D_12"/>
+                <Property ID="SegmentRef[3]" Value="SEG_D_13"/>
+                <Property ID="SegmentRef[4]" Value="SEG_D_14"/>
+                <Property ID="SegmentRef[5]" Value="SEG_D_15"/>
+                <Property ID="SegmentRef[6]" Value="SEG_E_16"/>
+                <Property ID="SegmentRef[7]" Value="SEG_E_17"/>
+                <Property ID="SegmentRef[8]" Value="SEG_E_18"/>
+                <Property ID="SegmentRef[9]" Value="SEG_E_19"/>
+                <Property ID="SegmentRef[10]" Value="SEG_E_20"/>
+                <Property ID="SegmentRef[11]" Value="SEG_E_21"/>
+                <Property ID="SegmentRef[12]" Value="SEG_E_22"/>
+                <Property ID="SegmentRef[13]" Value="SEG_E_23"/>
+                <Property ID="SegmentRef[14]" Value="SEG_E_24"/>
+                <Property ID="SegmentRef[15]" Value="SEG_F_30"/>
+                <Property ID="SegmentRef[16]" Value="SEG_F_31"/>
+                <Property ID="SegmentRef[17]" Value="SEG_F_32"/>
+                <Property ID="SegmentRef[18]" Value="SEG_F_33"/>
+                <Property ID="SegmentRef[19]" Value="SEG_F_34"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="SEG_F_35"/>
+                <Property ID="Position" Value="0.1"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackEFlexA" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="SEG_E_19"/>
+                <Property ID="Position" Value="0.2"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="SEG_E_20"/>
+                <Property ID="Position" Value="0.2"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackEFlexB" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="SEG_E_20"/>
+                <Property ID="Position" Value="0.4"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="SEG_E_20"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackEFlexC" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_F_30"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_F_31"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackEFlexD" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_J_37"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+            <Group ID="IntermediateSegments">
+                <Property ID="SegmentRef[1]" Value="::SEG_J_38"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_J_39"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackEFlexE" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_D_15"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_D_15"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackHFlex" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="SEG_G_10"/>
+            </Group>
+            <Group ID="IntermediateSegments">
+                <Property ID="SegmentRef[1]" Value="SEG_G_11"/>
+                <Property ID="SegmentRef[2]" Value="SEG_G_12"/>
+                <Property ID="SegmentRef[3]" Value="SEG_G_13"/>
+                <Property ID="SegmentRef[4]" Value="SEG_G_14"/>
+                <Property ID="SegmentRef[5]" Value="SEG_G_15"/>
+                <Property ID="SegmentRef[6]" Value="SEG_H_16"/>
+                <Property ID="SegmentRef[7]" Value="SEG_H_17"/>
+                <Property ID="SegmentRef[8]" Value="SEG_H_18"/>
+                <Property ID="SegmentRef[9]" Value="SEG_H_19"/>
+                <Property ID="SegmentRef[10]" Value="SEG_H_20"/>
+                <Property ID="SegmentRef[11]" Value="SEG_H_21"/>
+                <Property ID="SegmentRef[12]" Value="SEG_H_22"/>
+                <Property ID="SegmentRef[13]" Value="SEG_H_23"/>
+                <Property ID="SegmentRef[14]" Value="SEG_H_24"/>
+                <Property ID="SegmentRef[15]" Value="SEG_I_30"/>
+                <Property ID="SegmentRef[16]" Value="SEG_I_31"/>
+                <Property ID="SegmentRef[17]" Value="SEG_I_32"/>
+                <Property ID="SegmentRef[18]" Value="SEG_I_33"/>
+                <Property ID="SegmentRef[19]" Value="SEG_I_34"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="SEG_I_35"/>
+                <Property ID="Position" Value="0.1"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackHFlexA" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="SEG_H_19"/>
+                <Property ID="Position" Value="0.2"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="SEG_H_20"/>
+                <Property ID="Position" Value="0.2"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackHFlexB" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="SEG_H_20"/>
+                <Property ID="Position" Value="0.4"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="SEG_H_20"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackHFlexC" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_I_30"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_I_31"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackHFlexD" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_K_37"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+            <Group ID="IntermediateSegments">
+                <Property ID="SegmentRef[1]" Value="::SEG_K_38"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_K_39"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackHFlexE" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_G_15"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_G_15"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackJFlex" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_J_36"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+            <Group ID="IntermediateSegments">
+                <Property ID="SegmentRef[1]" Value="::SEG_J_37"/>
+                <Property ID="SegmentRef[2]" Value="::SEG_J_38"/>
+                <Property ID="SegmentRef[3]" Value="::SEG_J_39"/>
+                <Property ID="SegmentRef[4]" Value="::SEG_J_40"/>
+                <Property ID="SegmentRef[5]" Value="::SEG_J_41"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_J_42"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackKFlex" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_K_36"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+            <Group ID="IntermediateSegments">
+                <Property ID="SegmentRef[1]" Value="::SEG_K_37"/>
+                <Property ID="SegmentRef[2]" Value="::SEG_K_38"/>
+                <Property ID="SegmentRef[3]" Value="::SEG_K_39"/>
+                <Property ID="SegmentRef[4]" Value="::SEG_K_40"/>
+                <Property ID="SegmentRef[5]" Value="::SEG_K_41"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_K_42"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackAInBuff" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_A_29"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+            <Group ID="IntermediateSegments">
+                <Property ID="SegmentRef[1]" Value="::SEG_A_29"/>
+                <Property ID="SegmentRef[2]" Value="::SEG_A_28"/>
+                <Property ID="SegmentRef[3]" Value="::SEG_A_27"/>
+                <Property ID="SegmentRef[4]" Value="::SEG_A_26"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_A_25"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackAOutBuff" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_A_20"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+            <Group ID="IntermediateSegments">
+                <Property ID="SegmentRef[1]" Value="::SEG_A_19"/>
+                <Property ID="SegmentRef[2]" Value="::SEG_A_18"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_A_17"/>
+                <Property ID="Position" Value="0.2"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackA_Div_I" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_I_32"/>
+                <Property ID="Position" Value="0.40539"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_I_33"/>
+                <Property ID="Position" Value="0"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackA_Div_K" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_K_36"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_K_37"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackA_Mer_A" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_A_30"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_A_29"/>
+                <Property ID="Position" Value="0.100"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackA_Mer_I" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_I_34"/>
+            </Group>
+            <Group ID="IntermediateSegments">
+                <Property ID="SegmentRef[1]" Value="::SEG_I_35"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_A_29"/>
+                <Property ID="Position" Value="0.100"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackE_Mer_D" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_D_12"/>
+                <Property ID="Position" Value="0.3"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_D_13"/>
+                <Property ID="Position" Value="0.200"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackE_Mer_J" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_J_41"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+            <Group ID="IntermediateSegments">
+                <Property ID="SegmentRef[1]" Value="::SEG_J_42"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_D_13"/>
+                <Property ID="Position" Value="0.200"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackH_Mer_G" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_G_12"/>
+                <Property ID="Position" Value="0.3"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_G_13"/>
+                <Property ID="Position" Value="0.200"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackH_Mer_K" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_K_41"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+            <Group ID="IntermediateSegments">
+                <Property ID="SegmentRef[1]" Value="::SEG_K_42"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_G_13"/>
+                <Property ID="Position" Value="0.200"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackEFlexCnt" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="SEG_E_22"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+            <Group ID="IntermediateSegments">
+                <Property ID="SegmentRef[1]" Value="SEG_E_23"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="SEG_E_24"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gMcSecTrackHFlexCnt" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="SEG_H_22"/>
+                <Property ID="PositionRelativeTo" Value="FromEnd"/>
+            </Group>
+            <Group ID="IntermediateSegments">
+                <Property ID="SegmentRef[1]" Value="SEG_H_23"/>
+            </Group>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="SEG_H_24"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gDivSector_0" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_D_10"/>
+                <Property ID="Position" Value="0.0"/>
+            </Group>
+            <Group ID="IntermediateSegments"/>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_D_10"/>
+                <Property ID="Position" Value="0.09"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gDivSector_1" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_E_16"/>
+                <Property ID="Position" Value="0.66"/>
+            </Group>
+            <Group ID="IntermediateSegments"/>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_E_16"/>
+                <Property ID="Position" Value="0.5700000000000001"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gDivSector_4" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_J_42"/>
+                <Property ID="Position" Value="0.0"/>
+            </Group>
+            <Group ID="IntermediateSegments"/>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_J_42"/>
+                <Property ID="Position" Value="0.09"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gDivSector_5" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_H_16"/>
+                <Property ID="Position" Value="0.66"/>
+            </Group>
+            <Group ID="IntermediateSegments"/>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_H_16"/>
+                <Property ID="Position" Value="0.5700000000000001"/>
+            </Group>
+        </Selector>
+    </Element>
+    <Element ID="gDivSector_8" Type="sector">
+        <Selector ID="Type" Value="Composed">
+            <Group ID="StartSegment">
+                <Property ID="SegmentRef" Value="::SEG_K_42"/>
+                <Property ID="Position" Value="0.0"/>
+            </Group>
+            <Group ID="IntermediateSegments"/>
+            <Group ID="EndSegment">
+                <Property ID="SegmentRef" Value="::SEG_K_42"/>
+                <Property ID="Position" Value="0.09"/>
+            </Group>
+        </Selector>
+    </Element>
+</Configuration>
