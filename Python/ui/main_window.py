@@ -46,7 +46,7 @@ class MainWindow ( wx.Frame ):
         self.m_grid1.EnableGridLines( True )
         self.m_grid1.EnableDragGridSize( False )
         self.m_grid1.SetMargins( 0, 0 )
-
+        
         # Columns
         
         self.m_grid1.SetColSize( 0, 130 )
@@ -105,8 +105,29 @@ class MainWindow ( wx.Frame ):
 	# Virtual event handlers, overide them in your derived class
 
     def onAddImplicitDivert(self, event):
-        addImplicit = AddImplicitWindow(self)
+        keys = self.Proj.Segments.keys()
+        addImplicit = AddImplicitWindow(self,list(keys))
         addImplicit.Show()
+
+    def onAddDivertConfirm(self,spurName, baseName) -> None:
+        divert = src.AssemblyParse.Diverter(src.AssemblyParse.DivReferenceType.RelToOne,self.Proj.Segments[spurName],self.Proj.Segments[baseName])
+        self.m_grid1.AppendRows(1)
+        idx = self.m_grid1.GetNumberRows()-1
+        choices = []
+        choices.append(divert.SpurTrackSegment.SegName)
+        choices.append(divert.BaseTrackSegment.SegName)
+        self.m_grid1.SetCellValue(idx,0,divert.SpurTrackSegment.SegName)
+        self.m_grid1.SetCellValue(idx,1,str(divert.SpurTrackSegment.SegmentType))
+        self.m_grid1.SetCellValue(idx,2,str(divert.SpurTrackSegment.RelativeTo))
+        self.m_grid1.SetCellValue(idx,3,str(divert.SpurTrackSegment.Position))
+        self.m_grid1.SetCellValue(idx,4,divert.BaseTrackSegment.SegName)
+        self.m_grid1.SetCellValue(idx,5,str(divert.BaseTrackSegment.SegmentType))
+        self.m_grid1.SetCellValue(idx,6,str(divert.BaseTrackSegment.RelativeTo))
+        self.m_grid1.SetCellValue(idx,7,str(divert.BaseTrackSegment.Position))
+        choice_editor = wx.grid.GridCellChoiceEditor(choices)
+        self.m_grid1.SetCellEditor(idx,8,choice_editor)
+        self.m_grid1.SetCellValue(idx,8,choices[0])
+        self.Proj.Diverts.append(divert)
 
     def onFileImportProjectSelection( self, event ):
         dlg = wx.DirDialog(None,"Choose directory","",wx.DD_DEFAULT_STYLE | wx.DD_DIR_MUST_EXIST)
@@ -124,7 +145,7 @@ class MainWindow ( wx.Frame ):
 
     def fillGrid(self,DivertList):
         self.m_grid1.ClearGrid()
-        self.m_grid1.AppendRows(len(DivertList))
+        self.m_grid1.AppendRows(len(DivertList)-1)
         for idx,divert in enumerate(DivertList):
             choices = []
             choices.append(divert.SpurTrackSegment.SegName)
@@ -156,14 +177,4 @@ class MainWindow ( wx.Frame ):
     def onExportSelection(self,event):
         self.Proj.exportProject()
     
-    def setSpurInformation(self, newValue, row):
-        #If the index is < length, we're adding a new divert
-        if row >= len(self.Proj.Diverts):
-            self.m_grid1.AppendRows(1)
-        #Create a new divert
-        #Needs to set the new segment type
-        #Set the relative to and the position
-        pass
 
-    def setBaseInformation(self,  newValue, row):
-        pass

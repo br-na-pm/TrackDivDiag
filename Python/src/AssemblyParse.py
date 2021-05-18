@@ -29,7 +29,7 @@ class Segment:
         else:
             self.RelativeTo = SegRelTo.FromEnd
         if self.SegName.find("::") > -1:
-            self.SegName = self.SegName.lstrip(':')
+            self.SegName = self.SegName.lstrip('::')
         if self.SegName == "":
             print("Bad segname")
         self.setSegmentType(SegmentType)
@@ -74,6 +74,7 @@ class Diverter:
         self.SpurTrackSegment = SpurTrackSegment
         self.BaseTrackSegment = BaseTrackSegment
         self.DivTestPosition = DivTestPosition
+        self._chooseRefSegment()
 
     def __str__(self):
         return "{segSpur} connected to {segBase} type {divType}".format(
@@ -126,7 +127,7 @@ class Diverter:
         prop.attrib["Value"] = "0.1"
         return XmlElement
 
-    def ChooseRefSegment(self):
+    def _chooseRefSegment(self):
         #If one of the segments on the divert is a AB or BA it becomes the reference sector
         if self.SpurTrackSegment.SegmentType == TrackSegmentType.AB or self.SpurTrackSegment.SegmentType == TrackSegmentType.BA:
             self.RefSegment = "spur"
@@ -191,7 +192,7 @@ class ASProject:
     
         for seg in xmlElement.findall("./Group/[@ID='TrackSegmentPosition']/Property"):
             if seg.attrib['ID'] == "SegmentRef":
-                spurSegName = seg.attrib['Value'].lstrip(':')
+                spurSegName = seg.attrib['Value'].lstrip('::')
             elif seg.attrib['ID'] == "PositionRelativeTo":
                 spurRelTo = seg.attrib['Value']
             elif seg.attrib['ID'] == "Position":
@@ -199,7 +200,7 @@ class ASProject:
             
         for seg in xmlElement.findall("./Group/[@ID='Base']/Property"):
             if seg.attrib['ID'] == "SegmentRef":
-                baseSegName = seg.attrib['Value'].lstrip(':')
+                baseSegName = seg.attrib['Value'].lstrip('::')
             elif seg.attrib['ID'] == "PositionRelativeTo":
                 baseRelTo = seg.attrib['Value']
             elif seg.attrib['ID'] == "Position":
@@ -219,14 +220,14 @@ class ASProject:
         secondSegBaseName = ''
         for seg in xmlElement.findall("./Group/[@ID='AlignmentToFirst']/Property"):
             if seg.attrib['ID'] == "SegmentRefNewFirst":
-                firstSegSpurName = seg.attrib['Value'].lstrip(':')
+                firstSegSpurName = seg.attrib['Value'].lstrip('::')
             elif seg.attrib['ID'] == "SegmentRefBaseFirst":
-                firstSegBaseName = seg.attrib['Value'].lstrip(':')
+                firstSegBaseName = seg.attrib['Value'].lstrip('::')
         for seg in xmlElement.findall("./Group/[@ID='AlignmentToSecond']/Property"):
             if seg.attrib['ID'] == "SegmentRefNewSecond":
-                secondSegSpurName = seg.attrib['Value'].lstrip(':')
+                secondSegSpurName = seg.attrib['Value'].lstrip('::')
             elif seg.attrib['ID'] == "SegmentRefBaseSecond":
-                secondSegBaseName = seg.attrib['Value'].lstrip(':')
+                secondSegBaseName = seg.attrib['Value'].lstrip('::')
         diverts = []
         diverts.append(Diverter(DivReferenceType.RelToTwo, self.Segments[firstSegSpurName], self.Segments[firstSegBaseName]))
         diverts.append(Diverter(DivReferenceType.RelToTwo, self.Segments[secondSegSpurName], self.Segments[secondSegBaseName]))
@@ -246,7 +247,7 @@ class ASProject:
                  + self._hwList.findall("{namespace}Module/[@Type='8F1I01.AB2B.xxxx-1']".format(namespace = "{http://br-automation.co.at/AS/Hardware}")) \
                  + self._hwList.findall("{namespace}Module/[@Type='8F1I01.BA2B.xxxx-1']".format(namespace = "{http://br-automation.co.at/AS/Hardware}")):
             for par in module.findall("{namespace}Parameter/[@ID = 'SegmentReference']".format(namespace = "{http://br-automation.co.at/AS/Hardware}")):
-                segName = par.attrib['Value'].lstrip(':')
+                segName = par.attrib['Value'].lstrip('::')
                 segType = module.attrib['Type']
                 self.Segments[segName] = Segment(segName,SegmentType=segType)
 
@@ -274,15 +275,7 @@ class ASProject:
 
         et.register_namespace('', 'http://br-automation.co.at/AS/Hardware')
         
-        
-        #Parse the .hw file to determine versions
-        for div in self.Diverts:
-            #get the segment type from the .hw file
-            div.SpurTrackSegment.setSegmentType(self.SearchSegmentType(div.SpurTrackSegment.SegName))
-            div.BaseTrackSegment.setSegmentType(self.SearchSegmentType(div.BaseTrackSegment.SegName))
-            div.ChooseRefSegment()
-        
-
+       
     def exportProject(self):
         sectors = et.parse(self.SectorPath)
         for elem in sectors.iter():
