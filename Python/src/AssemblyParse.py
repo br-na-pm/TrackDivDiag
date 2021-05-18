@@ -20,7 +20,7 @@ class TrackSegmentType(Enum):
     BB = 3
 
 class Segment:
-    def __init__(self, SegName, Position = "0.0", RelativeTo="FromStart"):
+    def __init__(self, SegName, Position = "0.0", RelativeTo="FromStart", SegmentType = "8F1I01.AA66.xxxx-1"):
         self.SegName = SegName
         self.Position = float(Position)
         self.SegmentType = TrackSegmentType.BB #Doing this as a placeholder
@@ -32,7 +32,8 @@ class Segment:
             self.SegName = self.SegName.lstrip(':')
         if self.SegName == "":
             print("Bad segname")
-    
+        self.setSegmentType(SegmentType)
+
     def __str__(self):
         return "{segName}:{type} {relTo} at {pos}".format(
             segName = self.SegName,
@@ -190,7 +191,7 @@ class ASProject:
     
         for seg in xmlElement.findall("./Group/[@ID='TrackSegmentPosition']/Property"):
             if seg.attrib['ID'] == "SegmentRef":
-                spurSegName = seg.attrib['Value']
+                spurSegName = seg.attrib['Value'].lstrip(':')
             elif seg.attrib['ID'] == "PositionRelativeTo":
                 spurRelTo = seg.attrib['Value']
             elif seg.attrib['ID'] == "Position":
@@ -198,15 +199,18 @@ class ASProject:
             
         for seg in xmlElement.findall("./Group/[@ID='Base']/Property"):
             if seg.attrib['ID'] == "SegmentRef":
-                baseSegName = seg.attrib['Value']
+                baseSegName = seg.attrib['Value'].lstrip(':')
             elif seg.attrib['ID'] == "PositionRelativeTo":
                 baseRelTo = seg.attrib['Value']
             elif seg.attrib['ID'] == "Position":
                 baseRelPos = seg.attrib['Value']
 
-        spurSeg = Segment(spurSegName,spurRelPos,spurRelTo)
-        baseSeg = Segment(baseSegName,baseRelPos,baseRelTo)
-        return Diverter(DivReferenceType.RelToOne, spurSeg, baseSeg)
+        self.Segments[spurSegName].Position = spurRelPos
+        self.Segments[spurSegName].RelativeTo = spurRelTo
+        self.Segments[baseSegName].Position = baseRelPos
+        self.Segments[baseSegName].RelativeTo = baseRelTo
+        
+        return Diverter(DivReferenceType.RelToOne, self.Segments[spurSegName], self.Segments[baseSegName])
         
     def __parse_rel_to_two(self,xmlElement,xmlParent):
         firstSegSpurName = ''
@@ -215,21 +219,17 @@ class ASProject:
         secondSegBaseName = ''
         for seg in xmlElement.findall("./Group/[@ID='AlignmentToFirst']/Property"):
             if seg.attrib['ID'] == "SegmentRefNewFirst":
-                firstSegSpurName = seg.attrib['Value']
+                firstSegSpurName = seg.attrib['Value'].lstrip(':')
             elif seg.attrib['ID'] == "SegmentRefBaseFirst":
-                firstSegBaseName = seg.attrib['Value']
+                firstSegBaseName = seg.attrib['Value'].lstrip(':')
         for seg in xmlElement.findall("./Group/[@ID='AlignmentToSecond']/Property"):
             if seg.attrib['ID'] == "SegmentRefNewSecond":
-                secondSegSpurName = seg.attrib['Value']
+                secondSegSpurName = seg.attrib['Value'].lstrip(':')
             elif seg.attrib['ID'] == "SegmentRefBaseSecond":
-                secondSegBaseName = seg.attrib['Value']
-        firstSpurSeg = Segment(firstSegSpurName)
-        firstBaseSeg = Segment(firstSegBaseName)
-        secondSpurSeg = Segment(secondSegSpurName)
-        secondBaseSeg = Segment(secondSegBaseName)
+                secondSegBaseName = seg.attrib['Value'].lstrip(':')
         diverts = []
-        diverts.append(Diverter(DivReferenceType.RelToTwo, firstSpurSeg, firstBaseSeg))
-        diverts.append(Diverter(DivReferenceType.RelToTwo, secondSpurSeg, secondBaseSeg))
+        diverts.append(Diverter(DivReferenceType.RelToTwo, self.Segments[firstSegSpurName], self.Segments[firstSegBaseName]))
+        diverts.append(Diverter(DivReferenceType.RelToTwo, self.Segments[secondSegSpurName], self.Segments[secondSegBaseName]))
         return diverts
     
     def SearchSegmentType(self,segName) -> TrackSegmentType:
@@ -240,6 +240,16 @@ class ASProject:
                         )):
                 return module.attrib['Type']
 
+    def buildSegmentList(self):
+        self.Segments = dict()
+        for module in self._hwList.findall("{namespace}Module/[@Type='8F1I01.AA66.xxxx-1']".format(namespace = "{http://br-automation.co.at/AS/Hardware}")) \
+                 + self._hwList.findall("{namespace}Module/[@Type='8F1I01.AB2B.xxxx-1']".format(namespace = "{http://br-automation.co.at/AS/Hardware}")) \
+                 + self._hwList.findall("{namespace}Module/[@Type='8F1I01.BA2B.xxxx-1']".format(namespace = "{http://br-automation.co.at/AS/Hardware}")):
+            for par in module.findall("{namespace}Parameter/[@ID = 'SegmentReference']".format(namespace = "{http://br-automation.co.at/AS/Hardware}")):
+                segName = par.attrib['Value'].lstrip(':')
+                segType = module.attrib['Type']
+                self.Segments[segName] = Segment(segName,SegmentType=segType)
+
     def parseProject(self):
         self._getInputFiles()
         
@@ -247,6 +257,10 @@ class ASProject:
         rt = self.asmTree.getroot()
 
         self.Diverts = []
+
+        self.hwTree = et.parse(self.HWPath)
+        self._hwList = self.hwTree.getroot()        
+        self.buildSegmentList()
 
         for group in rt.findall("./Element/Group/[@ID='Tracks']"):
             for track in group.findall('./Group'):
@@ -260,14 +274,14 @@ class ASProject:
 
         et.register_namespace('', 'http://br-automation.co.at/AS/Hardware')
         
-        self.hwTree = et.parse(self.HWPath)
-        self._hwList = self.hwTree.getroot()        
+        
         #Parse the .hw file to determine versions
         for div in self.Diverts:
             #get the segment type from the .hw file
             div.SpurTrackSegment.setSegmentType(self.SearchSegmentType(div.SpurTrackSegment.SegName))
             div.BaseTrackSegment.setSegmentType(self.SearchSegmentType(div.BaseTrackSegment.SegName))
             div.ChooseRefSegment()
+        
 
     def exportProject(self):
         sectors = et.parse(self.SectorPath)
