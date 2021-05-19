@@ -128,6 +128,7 @@ class MainWindow ( wx.Frame ):
         self.m_grid1.SetCellEditor(idx,8,choice_editor)
         self.m_grid1.SetCellValue(idx,8,choices[0])
         self.Proj.Diverts.append(divert)
+        self.m_grid1.AutoSize()
 
     def onFileImportProjectSelection( self, event ):
         dlg = wx.DirDialog(None,"Choose directory","",wx.DD_DEFAULT_STYLE | wx.DD_DIR_MUST_EXIST)

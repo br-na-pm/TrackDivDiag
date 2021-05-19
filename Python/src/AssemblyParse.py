@@ -28,6 +28,7 @@ class Segment:
             self.RelativeTo = SegRelTo.FromStart
         else:
             self.RelativeTo = SegRelTo.FromEnd
+        print(self.RelativeTo)
         if self.SegName.find("::") > -1:
             self.SegName = self.SegName.lstrip('::')
         if self.SegName == "":
@@ -101,6 +102,7 @@ class Diverter:
         prop = et.SubElement(group, "Property")
         prop.attrib["ID"] = "SegmentRef"
         prop.attrib["Value"] = "::{segName}".format(segName = self.__getRefSegment().SegName)
+        print(str(self.__getRefSegment().RelativeTo))
         if self.__getRefSegment().RelativeTo == SegRelTo.FromEnd or \
                 self.__getRefSegment().SegmentType == TrackSegmentType.BA:
             prop = et.SubElement(group, "Property")
@@ -207,9 +209,12 @@ class ASProject:
                 baseRelPos = seg.attrib['Value']
 
         self.Segments[spurSegName].Position = spurRelPos
-        self.Segments[spurSegName].RelativeTo = spurRelTo
+        #I'm sure there is a faster of way converting this string to an enum, but this is what we're going with
+        if spurRelTo == "FromEnd": self.Segments[spurSegName].RelativeTo = SegRelTo.FromEnd
+        else: self.Segments[spurSegName].RelativeTo = SegRelTo.FromStart
         self.Segments[baseSegName].Position = baseRelPos
-        self.Segments[baseSegName].RelativeTo = baseRelTo
+        if baseRelTo == "FromEnd": self.Segments[baseSegName].RelativeTo = SegRelTo.FromEnd
+        else: self.Segments[baseSegName].RelativeTo = SegRelTo.FromStart
         
         return Diverter(DivReferenceType.RelToOne, self.Segments[spurSegName], self.Segments[baseSegName])
         
