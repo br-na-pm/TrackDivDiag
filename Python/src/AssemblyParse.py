@@ -102,7 +102,6 @@ class Diverter:
         prop = et.SubElement(group, "Property")
         prop.attrib["ID"] = "SegmentRef"
         prop.attrib["Value"] = "::{segName}".format(segName = self.__getRefSegment().SegName)
-        print(str(self.__getRefSegment().RelativeTo))
         if self.__getRefSegment().RelativeTo == SegRelTo.FromEnd or \
                 self.__getRefSegment().SegmentType == TrackSegmentType.BA:
             prop = et.SubElement(group, "Property")
@@ -302,9 +301,29 @@ class ASProject:
         with open("./Test.sector","w") as file:
             xmlStr = minidom.parseString(et.tostring(root,encoding='utf8').decode('utf8')).toprettyxml(indent = "    ")
             file.write(xmlStr)
+        
+        self._writeInitFile()
 
-    def AddDivert(self):
-        pass
+    def _writeInitFile(self):
+        with open("./TestInit.st","w") as file:
+            file.write("//This file was automatically generated using the Diverter Diagnostic program. Verify that the segment names and assembly name match your project values correctly\n")
+            file.write("PROGRAM _INIT\n")
+            file.write("DivertTestOffsets.ShSourceSector := ADR({sector}); //This is where the starting shuttle is located, feel free to change if your start shuttle is located elsewhere".format(sectorName = self.Diverts[0].SectorName))
+            for idx,div in enumerate(self.Diverts):
+                file.write("\tDivertTestOffsets.Sectors[{idx}] := {sectorName};\t//{divString}\n".format(idx = idx, sectorName = div.SectorName,divString = str(div)))
+            file.write("\n")
+            for idx,div in enumerate(self.Diverts):
+                file.write("\tDivertTestOffsets.SegmentName1[{idx}] := '{seg1Name}';\n".format(idx = idx, seg1Name = div.SpurTrackSegment.SegName))
+                file.write("\tDivertTestOffsets.SegmentName2[{idx}] := '{seg2Name}';\n".format(idx = idx, seg2Name = div.BaseTrackSegment.SegName))
+                file.write("\tDivertTestOffsetsPar.Positions[{idx}] := {divTestPosition};\n".format(idx = idx, divTestPosition = str(div.DivTestPosition)))
+            file.write("\n")
+            file.write("\tDivertTestOffsets.Parameters := ADR(DivertTestOffsetsPar);\n")    
+            file.write("\tDivertTestOffsetsPar.Velocity := 1.0;\n")
+            file.write("\tDivertTestOffsetsPar.Acceleration := 20.0;\n")
+            file.write("\tDivertTestOffsetsPar.Deceleration := 20.0;\n")
+            file.write("\tDivertTestOffsetsPar.SettleTime := T#5s;\n")
+            file.write("END_PROGRAM\n")
+    
 #Take input file
 #Open
 #Loop through each Track
