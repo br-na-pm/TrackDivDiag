@@ -6,6 +6,8 @@ from glob import glob
 from pathlib import Path
 import argparse
 
+from src.ReportBuilder import ReportBuilder
+
 class DivReferenceType(Enum):
     RelToOne = 0
     RelToTwo = 1
@@ -28,7 +30,6 @@ class Segment:
             self.RelativeTo = SegRelTo.FromStart
         else:
             self.RelativeTo = SegRelTo.FromEnd
-        print(self.RelativeTo)
         if self.SegName.find("::") > -1:
             self.SegName = self.SegName.lstrip('::')
         if self.SegName == "":
@@ -168,7 +169,6 @@ class ASProject:
     def _getInputFiles(self) -> None:
         try:
             AssemblyPath = [y for x in os.walk(self._configPath()) for y in glob(os.path.join(x[0], '*.assembly'))]
-            print(AssemblyPath[0])
             self.AssemblyPath = Path(AssemblyPath[0])
         except:
             print("Assembly file not found!")
@@ -304,11 +304,13 @@ class ASProject:
         
         self._writeInitFile()
 
+        ReportBuilder.export(Diverts=self.Diverts)
+
     def _writeInitFile(self):
         with open("./TestInit.st","w") as file:
             file.write("//This file was automatically generated using the Diverter Diagnostic program. Verify that the segment names and assembly name match your project values correctly\n")
             file.write("PROGRAM _INIT\n")
-            file.write("DivertTestOffsets.ShSourceSector := ADR({sector}); //This is where the starting shuttle is located, feel free to change if your start shuttle is located elsewhere".format(sectorName = self.Diverts[0].SectorName))
+            file.write("DivertTestOffsets.ShSourceSector := ADR({sectorName}); //This is where the starting shuttle is located, feel free to change if your start shuttle is located elsewhere".format(sectorName = self.Diverts[0].SectorName))
             for idx,div in enumerate(self.Diverts):
                 file.write("\tDivertTestOffsets.Sectors[{idx}] := {sectorName};\t//{divString}\n".format(idx = idx, sectorName = div.SectorName,divString = str(div)))
             file.write("\n")
@@ -324,120 +326,3 @@ class ASProject:
             file.write("\tDivertTestOffsetsPar.SettleTime := T#5s;\n")
             file.write("END_PROGRAM\n")
     
-#Take input file
-#Open
-#Loop through each Track
-#If a relative divert type, we need to make a new divert
-
-
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-a', '--assembly',dest='assemblyPath')
-    parser.add_argument('-hw', dest='hardwareFile')
-    parser.add_argument('-s','-sector', dest='sectorFilePath')
-    args = parser.parse_args()
-
-    path = Path(args.assemblyPath)
-    hwPath = Path(args.hardwareFile)
-    secPath = Path(args.sectorFilePath)
-
-    tree = et.parse(path)
-    rt = tree.getroot()
-
-    #Parse the assembly
-    diverts = []
-
-    for group in rt.findall("./Element/Group/[@ID='Tracks']"):
-        for track in group.findall('./Group'):
-            for ref in track.findall("./Selector/[@ID='Position']"):
-                if ref.attrib['Value'] == 'Absolute':
-                    pass#parse_abs(ref,track)
-                elif ref.attrib['Value'] == 'RelativeToOne':
-                    diverts.append(parse_rel_to_one(ref,track))
-                elif ref.attrib['Value'] == 'RelativeToTwo':
-                    diverts += parse_rel_to_two(ref,track)
-
-    et.register_namespace('', 'http://br-automation.co.at/AS/Hardware')
-    tree = et.parse(hwPath)
-    root = tree.getroot()        
-    #Parse the .hw file to determine versions
-    for div in diverts:
-        #get the segment type from the .hw file
-        for module in root.findall("{namespace}Module/[@Name='{segName}']"
-                .format(
-                    namespace = "{http://br-automation.co.at/AS/Hardware}",
-                    segName=div.SpurTrackSegment.SegName
-                    )):
-            div.SpurTrackSegment.setSegmentType(module.attrib['Type'])
-        for module in root.findall("{namespace}Module/[@Name='{segName}']"
-                .format(
-                    namespace = "{http://br-automation.co.at/AS/Hardware}",
-                    segName=div.BaseTrackSegment.SegName
-                    )):
-            div.BaseTrackSegment.setSegmentType(module.attrib['Type'])
-
-    tst = et.parse(secPath)
-    for elem in tst.iter():
-        if(elem.text):
-            elem.text = elem.text.strip()
-        if(elem.tail):
-            elem.tail = elem.tail.strip()
-    root = tst.getroot()
-
-    #Generate the Sectors
-    for idx,div in enumerate(diverts):
-        div.SetSectorName(idx)
-        if div.DivType == DivReferenceType.RelToOne:
-            newSector = et.SubElement(root, "Element")
-            newSector.attrib["ID"] = div.SectorName
-            newSector.attrib["Type"] = "sector"
-            selector = et.SubElement(newSector, "Selector")
-            selector.attrib["ID"] = "Type"
-            selector.attrib["Value"] = "Composed"
-            group = et.SubElement(selector, "Group")
-            group.attrib["ID"] = "StartSegment"
-            prop = et.SubElement(group, "Property")
-            prop.attrib["ID"] = "SegmentRef"
-            prop.attrib["Value"] = "::{segName}".format(segName = div.SpurTrackSegment.SegName)
-            prop = et.SubElement(group, "Property")
-            prop.attrib["ID"] = "Position"
-            prop.attrib["Value"] = str(div.SpurTrackSegment.PosFromStart)
-            #Determine the offsets
-            group = et.SubElement(selector, "Group")
-            group.attrib["ID"] = "IntermediateSegments"
-            group = et.SubElement(selector, "Group")
-            group.attrib["ID"] = "EndSegment"
-            prop = et.SubElement(group, "Property")
-            prop.attrib["ID"] = "SegmentRef"
-            prop.attrib["Value"] = "::{segName}".format(segName = div.SpurTrackSegment.SegName)
-            prop = et.SubElement(group, "Property")
-            prop.attrib["ID"] = "Position"
-            prop.attrib["Value"] = str(div.SecRelativeLength(True))
-        elif div.DivType == DivReferenceType.RelToTwo:
-            #With a relative to two divert, it will depend if there is an AB/BA segment in the divert or if it is two AA segments
-            #If there is an AB or BA segment, we will just use that segment + FromStart/FromEnd +/- 90 to create the sector
-            #If it's an AA segment, we'll just make a guess 
-            pass
-
-    with open("./Test.sector","w") as file:
-        xmlStr = minidom.parseString(et.tostring(root,encoding='utf8').decode('utf8')).toprettyxml(indent = "    ")
-        #file.write(xmlStr)
-
-    with open("./TestInit.st","w") as file:
-        file.write("//This file was automatically generated using the Diverter Diagnostic program. Verify that the segment names and assembly name match your project values correctly\n")
-        file.write("PROGRAM _INIT\n")
-        for idx,div in enumerate(diverts):
-            file.write("\tDivertTestOffsets.Sectors[{idx}] := {sectorName};\t//{divString}\n".format(idx = idx, sectorName = div.SectorName,divString = str(div)))
-        file.write("\n")
-        for idx,div in enumerate(diverts):
-            file.write("\tDivertTestOffsets.SegmentName1[{idx}] := '{seg1Name}';\n".format(idx = idx, seg1Name = div.SpurTrackSegment.SegName))
-            file.write("\tDivertTestOffsets.SegmentName2[{idx}] := '{seg2Name}';\n".format(idx = idx, seg2Name = div.BaseTrackSegment.SegName))
-            file.write("\tDivertTestOffsetsPar.Positions[{idx}] := {divTestPosition};\n".format(idx = idx, divTestPosition = str(div.DivTestPosition)))
-        file.write("\n")
-        file.write("\tDivertTestOffsets.Parameters := ADR(DivertTestOffsetsPar);\n")    
-        file.write("\tDivertTestOffsetsPar.Velocity := 1.0;\n")
-        file.write("\tDivertTestOffsetsPar.Acceleration := 20.0;\n")
-        file.write("\tDivertTestOffsetsPar.Deceleration := 20.0;\n")
-        file.write("\tDivertTestOffsetsPar.SettleTime := T#5s;\n")
-        file.write("END_PROGRAM\n")
