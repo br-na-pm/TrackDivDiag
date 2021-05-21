@@ -617,6 +617,27 @@ class ReportBuilder:
                 "ID":"Size",
                 "Value":"16"
             })
+        
+        #Chart
+        chartGroup = et.SubElement(contents,"Group",attrib={
+            "ID":"[{idx}]".format(idx = len(Diverts) + 1)
+        })
+        prop = et.SubElement(chartGroup,"Property",attrib={
+            "ID":"Name",
+            "Value":"Chart"
+        })
+        chartSelector = et.SubElement(chartGroup,"Selector",attrib={
+            "ID":"[0]",
+            "Value":"Chart"
+        })
+        prop = et.SubElement(chartSelector,"Property",attrib={
+            "ID":"Chart",
+            "Value":"DeviationBarChart"
+        })
+        prop = et.SubElement(chartSelector,"Property",attrib={
+            "ID":"HorizontalAlign",
+            "Value":"1"
+        })
 
     @staticmethod
     def __createReports(parent,Diverts) -> None:
