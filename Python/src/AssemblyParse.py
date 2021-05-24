@@ -91,6 +91,9 @@ class Diverter:
         else:
             return self.BaseTrackSegment
 
+    def GetRefSegRelativeTo(self) -> SegRelTo:
+        return self.__getRefSegment().RelativeTo
+
     def BuildSector(self,XmlElement):
         newSector = et.SubElement(XmlElement, "Element")
         newSector.attrib["ID"] = self.SectorName
@@ -152,7 +155,8 @@ class Diverter:
                 return self.BaseTrackSegment.Position + 0.09
             else:
                 return self.BaseTrackSegment.segLength() - self.BaseTrackSegment.Position - 0.09
-
+    def SetBaseReference(self,Ref : SegRelTo):
+        self.__getRefSegment().RelativeTo = Ref
 #Request which configuration to use
 #Get the .hw file
 #Get the .sector file
@@ -171,7 +175,7 @@ class ASProject:
             AssemblyPath = [y for x in os.walk(self._configPath()) for y in glob(os.path.join(x[0], '*.assembly'))]
             self.AssemblyPath = Path(AssemblyPath[0])
         except:
-            print("Assembly file not found!")
+            print("Assembly file not found. Is the AcpTrak system configured in this project?")
         try:
             SectorPath = [y for x in os.walk(self._configPath()) for y in glob(os.path.join(x[0], '*.sector'))]
             self.SectorPath = Path(SectorPath[0])
@@ -181,7 +185,12 @@ class ASProject:
             hw = [y for x in os.walk(self._configPath()) for y in glob(os.path.join(x[0], '*.hw'))]
             self.HWPath = Path(hw[0])
         except:
-            print("HW file not found!")
+            print("HW file not found. Was the root directory of a project selected?")
+        try:
+            vars = [y for x in os.walk(self.ProjectPath +r"\\Logical\\") for y in glob(os.path.join(x[0], 'Maint\\Variables.var'))]
+            self.MaintVarsPath = Path(vars[0])
+        except:
+            print("Could not find maint variable file. Does the project have the technology solution imported?")
 
     def __parse_rel_to_one(self,xmlElement,xmlParent) -> Diverter:
         spurSegName = ''
@@ -303,6 +312,7 @@ class ASProject:
             file.write(xmlStr)
         
         self._writeInitFile()
+        self.__updateDivertConstant()
 
         ReportBuilder.export(Diverts=self.Diverts)
 
@@ -314,6 +324,11 @@ class ASProject:
             for idx,div in enumerate(self.Diverts):
                 file.write("\tDivertTestOffsets.Sectors[{idx}] := {sectorName};\t//{divString}\n".format(idx = idx, sectorName = div.SectorName,divString = str(div)))
             file.write("\n")
+            file.write ("//Section used for declaring using segment variables to prevent the compiler from removing them. If you already have segment names used in your application, you can delete the following lines\n")
+            for div in self.Diverts:
+                file.write("\t{segName};\n".format(segName = div.SpurTrackSegment.SegName))
+                file.write("\t{segName};\n".format(segName = div.BaseTrackSegment.SegName))
+            file.write("//End of segment variable section\n\n")
             for idx,div in enumerate(self.Diverts):
                 file.write("\tDivertTestOffsets.SegmentName1[{idx}] := '{seg1Name}';\n".format(idx = idx, seg1Name = div.SpurTrackSegment.SegName))
                 file.write("\tDivertTestOffsets.SegmentName2[{idx}] := '{seg2Name}';\n".format(idx = idx, seg2Name = div.BaseTrackSegment.SegName))
@@ -325,4 +340,11 @@ class ASProject:
             file.write("\tDivertTestOffsetsPar.Deceleration := 20.0;\n")
             file.write("\tDivertTestOffsetsPar.SettleTime := T#5s;\n")
             file.write("END_PROGRAM\n")
-    
+
+    def __updateDivertConstant(self):
+        fileData = ''
+        with open (self.MaintVarsPath, "r") as file:
+            fileData = file.read()
+        fileData = fileData.replace("mlMAX_DIVERT_IDX : USINT := 11;","mlMAX_DIVERT_IDX : USINT := {count};".format(count = len(self.Diverts) - 1))
+        with open (self.MaintVarsPath, "w") as file:
+            file.write(fileData)

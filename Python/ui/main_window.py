@@ -41,7 +41,7 @@ class MainWindow ( wx.Frame ):
         self.m_grid1 = wx.grid.Grid( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
 
         # Grid
-        self.m_grid1.CreateGrid( 1, 9 )
+        self.m_grid1.CreateGrid( 1, 10 )
         self.m_grid1.EnableEditing( True )
         self.m_grid1.EnableGridLines( True )
         self.m_grid1.EnableDragGridSize( False )
@@ -58,6 +58,7 @@ class MainWindow ( wx.Frame ):
         self.m_grid1.SetColSize( 6, 80 )
         self.m_grid1.SetColSize( 7, 80 )
         self.m_grid1.SetColSize( 8, 130 )
+        self.m_grid1.SetColSize( 9, 130 )
         self.m_grid1.EnableDragColMove( False )
         self.m_grid1.EnableDragColSize( True )
         self.m_grid1.SetColLabelSize( 30 )
@@ -69,7 +70,8 @@ class MainWindow ( wx.Frame ):
         self.m_grid1.SetColLabelValue( 5, u"Segment Type" )
         self.m_grid1.SetColLabelValue( 6, u"Position" )
         self.m_grid1.SetColLabelValue( 7, u"Relative To" )
-        self.m_grid1.SetColLabelValue( 8, u"Reference Segment" )
+        self.m_grid1.SetColLabelValue( 8, u"Divert Ref Segment" )
+        self.m_grid1.SetColLabelValue( 9, u"Relative To" )
         self.m_grid1.SetColLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
 
         # Rows
@@ -127,6 +129,12 @@ class MainWindow ( wx.Frame ):
         choice_editor = wx.grid.GridCellChoiceEditor(choices)
         self.m_grid1.SetCellEditor(idx,8,choice_editor)
         self.m_grid1.SetCellValue(idx,8,choices[0])
+        relToEditor = wx.grid.GridCellChoiceEditor(["SegRelTo.FromStart","SegRelTo.FromStart"])
+        self.m_grid1.SetCellEditor(idx,9,relToEditor)
+        self.m_grid1.SetCellValue(idx,9,str(divert.GetRefSegRelativeTo()))
+        
+        for i in range(8): #Set all the cells to be read only except the last one
+            self.m_grid1.SetReadOnly(idx,i)
         self.Proj.Diverts.append(divert)
         self.m_grid1.AutoSize()
 
@@ -162,18 +170,34 @@ class MainWindow ( wx.Frame ):
             choice_editor = wx.grid.GridCellChoiceEditor(choices)
             self.m_grid1.SetCellEditor(idx,8,choice_editor)
             self.m_grid1.SetCellValue(idx,8,choices[0])
+            self.m_grid1.SetCellValue(idx,9,str(divert.GetRefSegRelativeTo()))
+            relToEditor = wx.grid.GridCellChoiceEditor(["SegRelTo.FromStart","SegRelTo.FromEnd"])
+            self.m_grid1.SetCellEditor(idx,9,relToEditor)
+
+            for i in range(8): #Set all the cells to be read only except the last one
+                self.m_grid1.SetReadOnly(idx,i)
             
         self.m_grid1.AutoSize()
 
     def onGridCellChanged(self,event):
         r = event.GetRow()
         c = event.GetCol()
-        if c == 0 or c == 4:
+        div = self.Proj.Diverts[r]
+        newValue = self.m_grid1.GetCellValue(r,c)
+        if c == 8:
             #If the cell that was changed was a segment name, validate the segment name and update the type
-            if c == 0: self.setSpurInformation(self.m_grid1.GetCellValue(r,c),r)
-            if c == 4: self.setSpurInformation(self.m_grid1.GetCellValue(r,c),r)
+            # if c == 0: self.setSpurInformation(self.m_grid1.GetCellValue(r,c),r)
+            # if c == 4: self.setSpurInformation(self.m_grid1.GetCellValue(r,c),r)
             #If the cell that was changed was a position or a reference to, update the diverter information on that index
-            print(self.m_grid1.GetCellValue(r,c))
+            if div.SpurTrackSegment.SegName == newValue:
+                self.Proj.Diverts[r].RefSegment = "spur"
+            elif div.BaseTrackSegment.SegName == newValue:
+                self.Proj.Diverts[r].RefSegment = "base"
+        if c == 9:
+            if newValue == "SegRelTo.FromStart":
+                self.Proj.Diverts[r].SetBaseReference(src.AssemblyParse.SegRelTo.FromStart)
+            elif newValue == "SegRelTo.FromEnd":
+                self.Proj.Diverts[r].SetBaseReference(src.AssemblyParse.SegRelTo.FromEnd)
 
     def onExportSelection(self,event):
         self.Proj.exportProject()
