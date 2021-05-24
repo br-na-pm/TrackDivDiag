@@ -37,8 +37,12 @@ FUNCTION_BLOCK GetSegmentOffsets
                 Internal.Status1 := PV_xgetadr(ADR(SegmentName1), ADR(Internal.Seg1Ref), ADR(Internal.Seg1Len));
                 Internal.Status2 := PV_xgetadr(ADR(SegmentName2), ADR(Internal.Seg2Ref), ADR(Internal.Seg2Len));
                 
-				Internal.State := GET_OFFSET_STATE_DONE;
-				//Internal.State := GET_OFFSET_STATE_GET_SEG;
+				IF DiagCpuIsARsim() OR DiagCpuIsSimulated () THEN
+					Done := TRUE;
+					Internal.State := GET_OFFSET_STATE_DONE;
+				ELSE
+					Internal.State := GET_OFFSET_STATE_GET_SEG;
+				END_IF
             END_IF
             
         GET_OFFSET_STATE_GET_SEG:
