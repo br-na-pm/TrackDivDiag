@@ -1,6 +1,6 @@
 VAR
+	mpReportFb : MpReportCore;
 	State : StateEnum; (*State of execution*)
-	GetSegOffset : GetSegmentOffsets; (*Get segment offset*)
 	DivertTestOffsets : TestOffsets; (*Test assembly divert offsets*)
 	DivertTestOffsetsPar : TestOffsetsParType; (*Divert offset test parameters*)
 	TestResults : ARRAY[0..mlMAX_DIVERT_IDX] OF GetSegmentOffsetsConfigType; (*Test results from divert test*)
@@ -13,5 +13,8 @@ VAR CONSTANT
 	ERR_NO_SH_ON_SEC : DINT := -10000; (*No shuttles found on sector*)
 	ERR_INVALID_SEG_TYPE : DINT := -10001; (*The segment type is invalid*)
 	ERR_INVALID_CONFIG : DINT := -10002; (*Resulting configuration is invalid*)
-	mlMAX_DIVERT_IDX : USINT := 20;
+	mlMAX_DIVERT_IDX : USINT := 11;
+END_VAR
+VAR
+	RunTest : BOOL;
 END_VAR

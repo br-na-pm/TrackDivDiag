@@ -1,0 +1,1587 @@
+<?xml version="1.0" ?>
+<Configuration>
+  <Element ID="gOffsetsReport" Type="mpreportcore">
+    <Group ID="MpReport">
+      <Group ID="Settings">
+        <Property ID="ResourceDeviceName" Value=""/>
+        <Group ID="LanguageDependent">
+          <Group ID="[0]">
+            <Property ID="Language" Value="en"/>
+            <Property ID="Font" Value="1"/>
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="PageLayouts">
+        <Group ID="[0]">
+          <Property ID="Name" Value="Default"/>
+          <Property ID="PageFormat" Value="1"/>
+        </Group>
+      </Group>
+      <Group ID="Styles">
+        <Group ID="Text">
+          <Group ID="[0]">
+            <Property ID="Name" Value="Default"/>
+          </Group>
+          <Group ID="[1]">
+            <Property ID="Name" Value="Title"/>
+            <Property ID="Style" Value="1"/>
+            <Property ID="Size" Value="14"/>
+          </Group>
+          <Group ID="[2]">
+            <Property ID="Name" Value="Header"/>
+            <Property ID="Size" Value="12"/>
+          </Group>
+          <Group ID="[3]">
+            <Property ID="Name" Value="Section"/>
+            <Property ID="Style" Value="2"/>
+            <Property ID="Size" Value="12"/>
+          </Group>
+        </Group>
+        <Group ID="Table">
+          <Group ID="[0]">
+            <Property ID="Name" Value="Default"/>
+          </Group>
+        </Group>
+        <Group ID="Line">
+          <Group ID="[0]">
+            <Property ID="Name" Value="Default"/>
+          </Group>
+        </Group>
+        <Group ID="Chart">
+          <Group ID="PieChart">
+            <Group ID="[0]">
+              <Property ID="Name" Value="Default"/>
+            </Group>
+          </Group>
+          <Group ID="LineChart">
+            <Group ID="[0]">
+              <Property ID="Name" Value="Default"/>
+            </Group>
+          </Group>
+          <Group ID="BarChart">
+            <Group ID="[0]">
+              <Property ID="Name" Value="Default"/>
+            </Group>
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="Tables">
+        <Selector ID="[0]">
+          <Property ID="Name" Value="Divert1"/>
+          <Property ID="TableStyle" Value="Default"/>
+          <Property ID="TextStyle" Value="Default"/>
+          <Group ID="[0]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value=""/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="TextId">
+              <Property ID="Source" Value="Segment 1"/>
+            </Selector>
+            <Selector ID="[2]" Value="TextId">
+              <Property ID="Source" Value="Segment 2"/>
+            </Selector>
+          </Group>
+          <Group ID="[1]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Name"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[0].Seg1Name"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[0].Seg2Name"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[2]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Type"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[0].Seg1Type"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[0].Seg2Type"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[3]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to start of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[0].Seg1PosRelToStart"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[0].Seg2PosRelToStart"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[4]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to end of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[0].Seg1PosRelToEnd"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[0].Seg2PosRelToEnd"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[5]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Measured Configuration Mismatch"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[0].Deviation"/>
+              </Selector>
+              <Property ID="Width" Value="50"/>
+              <Property ID="HorizontalAlign" Value="1"/>
+            </Selector>
+          </Group>
+        </Selector>
+        <Selector ID="[1]">
+          <Property ID="Name" Value="Divert2"/>
+          <Property ID="TableStyle" Value="Default"/>
+          <Property ID="TextStyle" Value="Default"/>
+          <Group ID="[0]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value=""/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="TextId">
+              <Property ID="Source" Value="Segment 1"/>
+            </Selector>
+            <Selector ID="[2]" Value="TextId">
+              <Property ID="Source" Value="Segment 2"/>
+            </Selector>
+          </Group>
+          <Group ID="[1]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Name"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[1].Seg1Name"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[1].Seg2Name"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[2]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Type"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[1].Seg1Type"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[1].Seg2Type"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[3]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to start of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[1].Seg1PosRelToStart"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[1].Seg2PosRelToStart"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[4]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to end of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[1].Seg1PosRelToEnd"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[1].Seg2PosRelToEnd"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[5]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Measured Configuration Mismatch"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[1].Deviation"/>
+              </Selector>
+              <Property ID="Width" Value="50"/>
+              <Property ID="HorizontalAlign" Value="1"/>
+            </Selector>
+          </Group>
+        </Selector>
+        <Selector ID="[2]">
+          <Property ID="Name" Value="Divert3"/>
+          <Property ID="TableStyle" Value="Default"/>
+          <Property ID="TextStyle" Value="Default"/>
+          <Group ID="[0]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value=""/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="TextId">
+              <Property ID="Source" Value="Segment 1"/>
+            </Selector>
+            <Selector ID="[2]" Value="TextId">
+              <Property ID="Source" Value="Segment 2"/>
+            </Selector>
+          </Group>
+          <Group ID="[1]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Name"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[2].Seg1Name"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[2].Seg2Name"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[2]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Type"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[2].Seg1Type"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[2].Seg2Type"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[3]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to start of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[2].Seg1PosRelToStart"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[2].Seg2PosRelToStart"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[4]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to end of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[2].Seg1PosRelToEnd"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[2].Seg2PosRelToEnd"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[5]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Measured Configuration Mismatch"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[2].Deviation"/>
+              </Selector>
+              <Property ID="Width" Value="50"/>
+              <Property ID="HorizontalAlign" Value="1"/>
+            </Selector>
+          </Group>
+        </Selector>
+        <Selector ID="[3]">
+          <Property ID="Name" Value="Divert4"/>
+          <Property ID="TableStyle" Value="Default"/>
+          <Property ID="TextStyle" Value="Default"/>
+          <Group ID="[0]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value=""/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="TextId">
+              <Property ID="Source" Value="Segment 1"/>
+            </Selector>
+            <Selector ID="[2]" Value="TextId">
+              <Property ID="Source" Value="Segment 2"/>
+            </Selector>
+          </Group>
+          <Group ID="[1]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Name"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[3].Seg1Name"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[3].Seg2Name"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[2]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Type"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[3].Seg1Type"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[3].Seg2Type"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[3]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to start of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[3].Seg1PosRelToStart"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[3].Seg2PosRelToStart"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[4]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to end of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[3].Seg1PosRelToEnd"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[3].Seg2PosRelToEnd"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[5]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Measured Configuration Mismatch"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[3].Deviation"/>
+              </Selector>
+              <Property ID="Width" Value="50"/>
+              <Property ID="HorizontalAlign" Value="1"/>
+            </Selector>
+          </Group>
+        </Selector>
+        <Selector ID="[4]">
+          <Property ID="Name" Value="Divert5"/>
+          <Property ID="TableStyle" Value="Default"/>
+          <Property ID="TextStyle" Value="Default"/>
+          <Group ID="[0]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value=""/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="TextId">
+              <Property ID="Source" Value="Segment 1"/>
+            </Selector>
+            <Selector ID="[2]" Value="TextId">
+              <Property ID="Source" Value="Segment 2"/>
+            </Selector>
+          </Group>
+          <Group ID="[1]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Name"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[4].Seg1Name"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[4].Seg2Name"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[2]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Type"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[4].Seg1Type"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[4].Seg2Type"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[3]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to start of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[4].Seg1PosRelToStart"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[4].Seg2PosRelToStart"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[4]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to end of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[4].Seg1PosRelToEnd"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[4].Seg2PosRelToEnd"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[5]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Measured Configuration Mismatch"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[4].Deviation"/>
+              </Selector>
+              <Property ID="Width" Value="50"/>
+              <Property ID="HorizontalAlign" Value="1"/>
+            </Selector>
+          </Group>
+        </Selector>
+        <Selector ID="[5]">
+          <Property ID="Name" Value="Divert6"/>
+          <Property ID="TableStyle" Value="Default"/>
+          <Property ID="TextStyle" Value="Default"/>
+          <Group ID="[0]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value=""/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="TextId">
+              <Property ID="Source" Value="Segment 1"/>
+            </Selector>
+            <Selector ID="[2]" Value="TextId">
+              <Property ID="Source" Value="Segment 2"/>
+            </Selector>
+          </Group>
+          <Group ID="[1]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Name"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[5].Seg1Name"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[5].Seg2Name"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[2]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Type"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[5].Seg1Type"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[5].Seg2Type"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[3]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to start of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[5].Seg1PosRelToStart"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[5].Seg2PosRelToStart"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[4]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to end of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[5].Seg1PosRelToEnd"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[5].Seg2PosRelToEnd"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[5]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Measured Configuration Mismatch"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[5].Deviation"/>
+              </Selector>
+              <Property ID="Width" Value="50"/>
+              <Property ID="HorizontalAlign" Value="1"/>
+            </Selector>
+          </Group>
+        </Selector>
+        <Selector ID="[6]">
+          <Property ID="Name" Value="Divert7"/>
+          <Property ID="TableStyle" Value="Default"/>
+          <Property ID="TextStyle" Value="Default"/>
+          <Group ID="[0]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value=""/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="TextId">
+              <Property ID="Source" Value="Segment 1"/>
+            </Selector>
+            <Selector ID="[2]" Value="TextId">
+              <Property ID="Source" Value="Segment 2"/>
+            </Selector>
+          </Group>
+          <Group ID="[1]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Name"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[6].Seg1Name"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[6].Seg2Name"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[2]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Type"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[6].Seg1Type"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[6].Seg2Type"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[3]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to start of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[6].Seg1PosRelToStart"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[6].Seg2PosRelToStart"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[4]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to end of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[6].Seg1PosRelToEnd"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[6].Seg2PosRelToEnd"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[5]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Measured Configuration Mismatch"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[6].Deviation"/>
+              </Selector>
+              <Property ID="Width" Value="50"/>
+              <Property ID="HorizontalAlign" Value="1"/>
+            </Selector>
+          </Group>
+        </Selector>
+        <Selector ID="[7]">
+          <Property ID="Name" Value="Divert8"/>
+          <Property ID="TableStyle" Value="Default"/>
+          <Property ID="TextStyle" Value="Default"/>
+          <Group ID="[0]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value=""/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="TextId">
+              <Property ID="Source" Value="Segment 1"/>
+            </Selector>
+            <Selector ID="[2]" Value="TextId">
+              <Property ID="Source" Value="Segment 2"/>
+            </Selector>
+          </Group>
+          <Group ID="[1]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Name"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[7].Seg1Name"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[7].Seg2Name"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[2]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Type"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[7].Seg1Type"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[7].Seg2Type"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[3]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to start of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[7].Seg1PosRelToStart"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[7].Seg2PosRelToStart"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[4]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to end of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[7].Seg1PosRelToEnd"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[7].Seg2PosRelToEnd"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[5]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Measured Configuration Mismatch"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[7].Deviation"/>
+              </Selector>
+              <Property ID="Width" Value="50"/>
+              <Property ID="HorizontalAlign" Value="1"/>
+            </Selector>
+          </Group>
+        </Selector>
+        <Selector ID="[8]">
+          <Property ID="Name" Value="Divert9"/>
+          <Property ID="TableStyle" Value="Default"/>
+          <Property ID="TextStyle" Value="Default"/>
+          <Group ID="[0]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value=""/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="TextId">
+              <Property ID="Source" Value="Segment 1"/>
+            </Selector>
+            <Selector ID="[2]" Value="TextId">
+              <Property ID="Source" Value="Segment 2"/>
+            </Selector>
+          </Group>
+          <Group ID="[1]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Name"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[8].Seg1Name"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[8].Seg2Name"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[2]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Type"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[8].Seg1Type"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[8].Seg2Type"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[3]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to start of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[8].Seg1PosRelToStart"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[8].Seg2PosRelToStart"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[4]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to end of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[8].Seg1PosRelToEnd"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[8].Seg2PosRelToEnd"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[5]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Measured Configuration Mismatch"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[8].Deviation"/>
+              </Selector>
+              <Property ID="Width" Value="50"/>
+              <Property ID="HorizontalAlign" Value="1"/>
+            </Selector>
+          </Group>
+        </Selector>
+        <Selector ID="[9]">
+          <Property ID="Name" Value="Divert10"/>
+          <Property ID="TableStyle" Value="Default"/>
+          <Property ID="TextStyle" Value="Default"/>
+          <Group ID="[0]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value=""/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="TextId">
+              <Property ID="Source" Value="Segment 1"/>
+            </Selector>
+            <Selector ID="[2]" Value="TextId">
+              <Property ID="Source" Value="Segment 2"/>
+            </Selector>
+          </Group>
+          <Group ID="[1]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Name"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[9].Seg1Name"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[9].Seg2Name"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[2]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Type"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[9].Seg1Type"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[9].Seg2Type"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[3]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to start of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[9].Seg1PosRelToStart"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[9].Seg2PosRelToStart"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[4]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to end of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[9].Seg1PosRelToEnd"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[9].Seg2PosRelToEnd"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[5]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Measured Configuration Mismatch"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[9].Deviation"/>
+              </Selector>
+              <Property ID="Width" Value="50"/>
+              <Property ID="HorizontalAlign" Value="1"/>
+            </Selector>
+          </Group>
+        </Selector>
+        <Selector ID="[10]">
+          <Property ID="Name" Value="Divert11"/>
+          <Property ID="TableStyle" Value="Default"/>
+          <Property ID="TextStyle" Value="Default"/>
+          <Group ID="[0]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value=""/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="TextId">
+              <Property ID="Source" Value="Segment 1"/>
+            </Selector>
+            <Selector ID="[2]" Value="TextId">
+              <Property ID="Source" Value="Segment 2"/>
+            </Selector>
+          </Group>
+          <Group ID="[1]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Name"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[10].Seg1Name"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[10].Seg2Name"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[2]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Type"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[10].Seg1Type"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[10].Seg2Type"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[3]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to start of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[10].Seg1PosRelToStart"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[10].Seg2PosRelToStart"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[4]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to end of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[10].Seg1PosRelToEnd"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[10].Seg2PosRelToEnd"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[5]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Measured Configuration Mismatch"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[10].Deviation"/>
+              </Selector>
+              <Property ID="Width" Value="50"/>
+              <Property ID="HorizontalAlign" Value="1"/>
+            </Selector>
+          </Group>
+        </Selector>
+        <Selector ID="[11]">
+          <Property ID="Name" Value="Divert12"/>
+          <Property ID="TableStyle" Value="Default"/>
+          <Property ID="TextStyle" Value="Default"/>
+          <Group ID="[0]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value=""/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="TextId">
+              <Property ID="Source" Value="Segment 1"/>
+            </Selector>
+            <Selector ID="[2]" Value="TextId">
+              <Property ID="Source" Value="Segment 2"/>
+            </Selector>
+          </Group>
+          <Group ID="[1]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Name"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[11].Seg1Name"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[11].Seg2Name"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[2]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Type"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[11].Seg1Type"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[11].Seg2Type"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[3]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to start of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[11].Seg1PosRelToStart"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[11].Seg2PosRelToStart"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[4]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Relative to end of segment"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[11].Seg1PosRelToEnd"/>
+              </Selector>
+            </Selector>
+            <Selector ID="[2]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[11].Seg2PosRelToEnd"/>
+              </Selector>
+            </Selector>
+          </Group>
+          <Group ID="[5]">
+            <Selector ID="[0]" Value="TextId">
+              <Property ID="Source" Value="Measured Configuration Mismatch"/>
+              <Property ID="Width" Value="40"/>
+            </Selector>
+            <Selector ID="[1]" Value="ValueId">
+              <Selector ID="Value">
+                <Property ID="ProcessVariable" Value="::Maint:TestResults[11].Deviation"/>
+              </Selector>
+              <Property ID="Width" Value="50"/>
+              <Property ID="HorizontalAlign" Value="1"/>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="Charts">
+        <Selector ID="[0]" Value="BarChart">
+          <Property ID="Name" Value="DeviationBarChart"/>
+          <Selector ID="Heading" Value="SingleText">
+            <Property ID="Text" Value="Diverter Offset Mismatch Measurements"/>
+            <Property ID="HorizontalAlign" Value="1"/>
+            <Property ID="TextStyle" Value="Section"/>
+          </Selector>
+          <Property ID="ChartStyle" Value="Default"/>
+          <Property ID="TextStyle" Value="Default"/>
+          <Property ID="ShowLegend" Value="2"/>
+          <Group ID="YAxis">
+            <Property ID="Label" Value="Deviation (m)"/>
+            <Property ID="NumberOfGridLines" Value="4"/>
+            <Selector ID="ItemMinValue" Value="Dynamic">
+              <Property ID="ValuePV" Value="::Maint:MinDeviation"/>
+            </Selector>
+            <Selector ID="ItemMaxValue" Value="Dynamic">
+              <Property ID="ValuePV" Value="::Maint:MaxDeviation"/>
+            </Selector>
+          </Group>
+          <Group ID="[0]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::Maint:TestResults[0].Deviation"/>
+            </Selector>
+            <Property ID="LegendText" Value="Diverter 1"/>
+          </Group>
+          <Group ID="[1]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::Maint:TestResults[1].Deviation"/>
+            </Selector>
+            <Property ID="ItemColor" Value="FF0000"/>
+            <Property ID="LegendText" Value="Diverter 2"/>
+          </Group>
+          <Group ID="[2]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::Maint:TestResults[2].Deviation"/>
+            </Selector>
+            <Property ID="ItemColor" Value="7F7F7F"/>
+            <Property ID="LegendText" Value="Diverter 3"/>
+          </Group>
+          <Group ID="[3]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::Maint:TestResults[3].Deviation"/>
+            </Selector>
+            <Property ID="ItemColor" Value="800000"/>
+            <Property ID="LegendText" Value="Diverter 4"/>
+          </Group>
+          <Group ID="[4]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::Maint:TestResults[4].Deviation"/>
+            </Selector>
+            <Property ID="ItemColor" Value="FFFF00"/>
+            <Property ID="LegendText" Value="Diverter 5"/>
+          </Group>
+          <Group ID="[5]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::Maint:TestResults[5].Deviation"/>
+            </Selector>
+            <Property ID="ItemColor" Value="800080"/>
+            <Property ID="LegendText" Value="Diverter 6"/>
+          </Group>
+          <Group ID="[6]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::Maint:TestResults[6].Deviation"/>
+            </Selector>
+            <Property ID="ItemColor" Value="00FFFF"/>
+            <Property ID="LegendText" Value="Diverter 7"/>
+          </Group>
+          <Group ID="[7]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::Maint:TestResults[7].Deviation"/>
+            </Selector>
+            <Property ID="ItemColor" Value="33CC00"/>
+            <Property ID="LegendText" Value="Diverter 8"/>
+          </Group>
+          <Group ID="[8]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::Maint:TestResults[8].Deviation"/>
+            </Selector>
+            <Property ID="ItemColor" Value="FF9900"/>
+            <Property ID="LegendText" Value="Diverter 9"/>
+          </Group>
+          <Group ID="[9]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::Maint:TestResults[9].Deviation"/>
+            </Selector>
+            <Property ID="ItemColor" Value="808000"/>
+            <Property ID="LegendText" Value="Diverter 10"/>
+          </Group>
+          <Group ID="[10]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::Maint:TestResults[10].Deviation"/>
+            </Selector>
+            <Property ID="LegendText" Value="Diverter 11"/>
+          </Group>
+          <Group ID="[11]">
+            <Selector ID="Value">
+              <Property ID="ProcessVariable" Value="::Maint:TestResults[11].Deviation"/>
+            </Selector>
+            <Property ID="ItemColor" Value="FF0000"/>
+            <Property ID="LegendText" Value="Diverter 12"/>
+          </Group>
+        </Selector>
+      </Group>
+      <Group ID="Contents">
+        <Group ID="[0]">
+          <Property ID="Name" Value="Header"/>
+          <Selector ID="[0]">
+            <Property ID="Text" Value="Diverter Offset Results"/>
+            <Property ID="HorizontalAlign" Value="1"/>
+            <Property ID="NewLine" Value="FALSE"/>
+            <Property ID="TextStyle" Value="Title"/>
+          </Selector>
+          <Selector ID="[1]" Value="EmptyLine">
+            <Property ID="Size" Value="16"/>
+          </Selector>
+          <Selector ID="[2]">
+            <Property ID="Text" Value="gMcAssembly01"/>
+            <Property ID="NewLine" Value="FALSE"/>
+            <Property ID="TextStyle" Value="Header"/>
+          </Selector>
+          <Selector ID="[3]" Value="DateTime">
+            <Property ID="HorizontalAlign" Value="2"/>
+            <Property ID="NewLine" Value="FALSE"/>
+            <Property ID="TextStyle" Value="Header"/>
+          </Selector>
+          <Selector ID="[4]" Value="EmptyLine">
+            <Property ID="Size" Value="14"/>
+          </Selector>
+        </Group>
+        <Group ID="[1]">
+          <Property ID="Name" Value="Diverter1"/>
+          <Selector ID="[0]" Value="Table">
+            <Property ID="Table" Value="Divert1"/>
+            <Property ID="HorizontalAlign" Value="1"/>
+          </Selector>
+          <Selector ID="[1]" Value="EmptyLine">
+            <Property ID="Size" Value="16"/>
+          </Selector>
+        </Group>
+        <Group ID="[2]">
+          <Property ID="Name" Value="Diverter2"/>
+          <Selector ID="[0]" Value="Table">
+            <Property ID="Table" Value="Divert2"/>
+            <Property ID="HorizontalAlign" Value="1"/>
+          </Selector>
+          <Selector ID="[1]" Value="EmptyLine">
+            <Property ID="Size" Value="16"/>
+          </Selector>
+        </Group>
+        <Group ID="[3]">
+          <Property ID="Name" Value="Diverter3"/>
+          <Selector ID="[0]" Value="Table">
+            <Property ID="Table" Value="Divert3"/>
+            <Property ID="HorizontalAlign" Value="1"/>
+          </Selector>
+          <Selector ID="[1]" Value="EmptyLine">
+            <Property ID="Size" Value="16"/>
+          </Selector>
+        </Group>
+        <Group ID="[4]">
+          <Property ID="Name" Value="Diverter4"/>
+          <Selector ID="[0]" Value="Table">
+            <Property ID="Table" Value="Divert4"/>
+            <Property ID="HorizontalAlign" Value="1"/>
+          </Selector>
+          <Selector ID="[1]" Value="EmptyLine">
+            <Property ID="Size" Value="16"/>
+          </Selector>
+        </Group>
+        <Group ID="[5]">
+          <Property ID="Name" Value="Diverter5"/>
+          <Selector ID="[0]" Value="Table">
+            <Property ID="Table" Value="Divert5"/>
+            <Property ID="HorizontalAlign" Value="1"/>
+          </Selector>
+          <Selector ID="[1]" Value="EmptyLine">
+            <Property ID="Size" Value="16"/>
+          </Selector>
+        </Group>
+        <Group ID="[6]">
+          <Property ID="Name" Value="Diverter6"/>
+          <Selector ID="[0]" Value="Table">
+            <Property ID="Table" Value="Divert6"/>
+            <Property ID="HorizontalAlign" Value="1"/>
+          </Selector>
+          <Selector ID="[1]" Value="EmptyLine">
+            <Property ID="Size" Value="16"/>
+          </Selector>
+        </Group>
+        <Group ID="[7]">
+          <Property ID="Name" Value="Diverter7"/>
+          <Selector ID="[0]" Value="Table">
+            <Property ID="Table" Value="Divert7"/>
+            <Property ID="HorizontalAlign" Value="1"/>
+          </Selector>
+          <Selector ID="[1]" Value="EmptyLine">
+            <Property ID="Size" Value="16"/>
+          </Selector>
+        </Group>
+        <Group ID="[8]">
+          <Property ID="Name" Value="Diverter8"/>
+          <Selector ID="[0]" Value="Table">
+            <Property ID="Table" Value="Divert8"/>
+            <Property ID="HorizontalAlign" Value="1"/>
+          </Selector>
+          <Selector ID="[1]" Value="EmptyLine">
+            <Property ID="Size" Value="16"/>
+          </Selector>
+        </Group>
+        <Group ID="[9]">
+          <Property ID="Name" Value="Diverter9"/>
+          <Selector ID="[0]" Value="Table">
+            <Property ID="Table" Value="Divert9"/>
+            <Property ID="HorizontalAlign" Value="1"/>
+          </Selector>
+          <Selector ID="[1]" Value="EmptyLine">
+            <Property ID="Size" Value="16"/>
+          </Selector>
+        </Group>
+        <Group ID="[10]">
+          <Property ID="Name" Value="Diverter10"/>
+          <Selector ID="[0]" Value="Table">
+            <Property ID="Table" Value="Divert10"/>
+            <Property ID="HorizontalAlign" Value="1"/>
+          </Selector>
+          <Selector ID="[1]" Value="EmptyLine">
+            <Property ID="Size" Value="16"/>
+          </Selector>
+        </Group>
+        <Group ID="[11]">
+          <Property ID="Name" Value="Diverter11"/>
+          <Selector ID="[0]" Value="Table">
+            <Property ID="Table" Value="Divert11"/>
+            <Property ID="HorizontalAlign" Value="1"/>
+          </Selector>
+          <Selector ID="[1]" Value="EmptyLine">
+            <Property ID="Size" Value="16"/>
+          </Selector>
+        </Group>
+        <Group ID="[12]">
+          <Property ID="Name" Value="Diverter12"/>
+          <Selector ID="[0]" Value="Table">
+            <Property ID="Table" Value="Divert12"/>
+            <Property ID="HorizontalAlign" Value="1"/>
+          </Selector>
+          <Selector ID="[1]" Value="EmptyLine">
+            <Property ID="Size" Value="16"/>
+          </Selector>
+        </Group>
+        <Group ID="[13]">
+          <Property ID="Name" Value="Chart"/>
+          <Selector ID="[0]" Value="Chart">
+            <Property ID="Chart" Value="DeviationBarChart"/>
+            <Property ID="HorizontalAlign" Value="1"/>
+          </Selector>
+        </Group>
+      </Group>
+      <Group ID="Reports">
+        <Group ID="[0]">
+          <Property ID="Name" Value="DiverterOffsetResults"/>
+          <Group ID="Settings">
+            <Property ID="AllowCopy" Value="TRUE"/>
+          </Group>
+          <Property ID="FileNamePattern" Value="DiverterOffsets_%Y_%m_%d_%H_%M_%S.pdf"/>
+          <Property ID="PageLayout" Value="Default"/>
+          <Property ID="Header" Value="Header"/>
+          <Group ID="[0]">
+            <Group ID="Heading">
+              <Property ID="Text" Value="Diverter 1"/>
+              <Property ID="TextStyle" Value="Section"/>
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="Diverter1"/>
+            </Group>
+          </Group>
+          <Group ID="[1]">
+            <Group ID="Heading">
+              <Property ID="Text" Value="Diverter 2"/>
+              <Property ID="TextStyle" Value="Section"/>
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="Diverter2"/>
+            </Group>
+          </Group>
+          <Group ID="[2]">
+            <Group ID="Heading">
+              <Property ID="Text" Value="Diverter 3"/>
+              <Property ID="TextStyle" Value="Section"/>
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="Diverter3"/>
+            </Group>
+          </Group>
+          <Group ID="[3]">
+            <Group ID="Heading">
+              <Property ID="Text" Value="Diverter 4"/>
+              <Property ID="TextStyle" Value="Section"/>
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="Diverter4"/>
+            </Group>
+          </Group>
+          <Group ID="[4]">
+            <Group ID="Heading">
+              <Property ID="Text" Value="Diverter 5"/>
+              <Property ID="TextStyle" Value="Section"/>
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="Diverter5"/>
+            </Group>
+          </Group>
+          <Group ID="[5]">
+            <Group ID="Heading">
+              <Property ID="Text" Value="Diverter 6"/>
+              <Property ID="TextStyle" Value="Section"/>
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="Diverter6"/>
+            </Group>
+          </Group>
+          <Group ID="[6]">
+            <Group ID="Heading">
+              <Property ID="Text" Value="Diverter 7"/>
+              <Property ID="TextStyle" Value="Section"/>
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="Diverter7"/>
+            </Group>
+          </Group>
+          <Group ID="[7]">
+            <Group ID="Heading">
+              <Property ID="Text" Value="Diverter 8"/>
+              <Property ID="TextStyle" Value="Section"/>
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="Diverter8"/>
+            </Group>
+          </Group>
+          <Group ID="[8]">
+            <Group ID="Heading">
+              <Property ID="Text" Value="Diverter 9"/>
+              <Property ID="TextStyle" Value="Section"/>
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="Diverter9"/>
+            </Group>
+          </Group>
+          <Group ID="[9]">
+            <Group ID="Heading">
+              <Property ID="Text" Value="Diverter 10"/>
+              <Property ID="TextStyle" Value="Section"/>
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="Diverter10"/>
+            </Group>
+          </Group>
+          <Group ID="[10]">
+            <Group ID="Heading">
+              <Property ID="Text" Value="Diverter 11"/>
+              <Property ID="TextStyle" Value="Section"/>
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="Diverter11"/>
+            </Group>
+          </Group>
+          <Group ID="[11]">
+            <Group ID="Heading">
+              <Property ID="Text" Value="Diverter 12"/>
+              <Property ID="TextStyle" Value="Section"/>
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="Diverter12"/>
+            </Group>
+          </Group>
+          <Group ID="[12]">
+            <Property ID="StartOnNewPage" Value="TRUE"/>
+            <Group ID="Heading">
+              <Property ID="TextStyle" Value="Section"/>
+            </Group>
+            <Group ID="[0]">
+              <Property ID="Content" Value="Chart"/>
+            </Group>
+          </Group>
+        </Group>
+      </Group>
+    </Group>
+  </Element>
+</Configuration>

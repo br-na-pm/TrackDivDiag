@@ -7,5 +7,7 @@
     <Object Type="Package" Description="Global libraries">Libraries</Object>
     <Object Type="Package">Source</Object>
     <Object Type="Package">Scene</Object>
+    <Object Type="File">Project.language</Object>
+    <Object Type="Package">Report</Object>
   </Objects>
 </Package>
