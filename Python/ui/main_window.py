@@ -1,4 +1,5 @@
 
+from ui.export_window import ExportWindow
 from ui.add_new_implicit import AddImplicitWindow
 from ui.config_select import ConfigSelectWindow
 import wx
@@ -6,7 +7,8 @@ import wx.xrc
 import wx.grid
 import wx.svg
 import os
-import src.AssemblyParse
+from src.AssemblyParse import ASProject,Diverter,DivReferenceType,Segment,SegRelTo,TrackSegmentType
+from src.export_cfg import ExportConfig
 ###########################################################################
 ## Class Main
 ###########################################################################
@@ -17,7 +19,7 @@ class MainWindow ( wx.Frame ):
         wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"Diverter Diagnostic Task Builder", pos = wx.DefaultPosition, size = wx.Size( 1280,800 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
 
         self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
-
+        
         self.m_menubar1 = wx.MenuBar( 0 )
         self.m_menu1 = wx.Menu()
         self.miFileImportProject = wx.MenuItem( self.m_menu1, wx.ID_ANY, u"Import Project", wx.EmptyString, wx.ITEM_NORMAL )
@@ -112,7 +114,7 @@ class MainWindow ( wx.Frame ):
         addImplicit.Show()
 
     def onAddDivertConfirm(self,spurName, baseName) -> None:
-        divert = src.AssemblyParse.Diverter(src.AssemblyParse.DivReferenceType.RelToOne,self.Proj.Segments[spurName],self.Proj.Segments[baseName])
+        divert = Diverter(DivReferenceType.RelToOne,self.Proj.Segments[spurName],self.Proj.Segments[baseName])
         self.m_grid1.AppendRows(1)
         idx = self.m_grid1.GetNumberRows()-1
         choices = []
@@ -141,7 +143,7 @@ class MainWindow ( wx.Frame ):
     def onFileImportProjectSelection( self, event ):
         dlg = wx.DirDialog(None,"Choose directory","",wx.DD_DEFAULT_STYLE | wx.DD_DIR_MUST_EXIST)
         dlg.ShowModal()
-        self.Proj = src.AssemblyParse.ASProject(dlg.GetPath())
+        self.Proj = ASProject(dlg.GetPath())
         configs = next(os.walk(self.Proj.ProjectPath+"\\Physical\\"))[1]
         if len(configs) > 1:
             cfgSelect = ConfigSelectWindow(self,configs)
@@ -195,11 +197,13 @@ class MainWindow ( wx.Frame ):
                 self.Proj.Diverts[r].RefSegment = "base"
         if c == 9:
             if newValue == "SegRelTo.FromStart":
-                self.Proj.Diverts[r].SetBaseReference(src.AssemblyParse.SegRelTo.FromStart)
+                self.Proj.Diverts[r].SetBaseReference(SegRelTo.FromStart)
             elif newValue == "SegRelTo.FromEnd":
-                self.Proj.Diverts[r].SetBaseReference(src.AssemblyParse.SegRelTo.FromEnd)
+                self.Proj.Diverts[r].SetBaseReference(SegRelTo.FromEnd)
 
     def onExportSelection(self,event):
-        self.Proj.exportProject()
+        exportWindow = ExportWindow(self, self.Proj)
+        exportWindow.Show()
+#        self.Proj.exportProject()
     
 

@@ -19,10 +19,37 @@ class ReportBuilder:
         ReportBuilder.__createContents(report,Diverts,"gMcAssembly01")
         ReportBuilder.__createReports(report,Diverts)
 
-        with open("./DivertReport.mpreportcore","w") as file:
+        mpCfgFileName = "DivertRepo.mpreportcore"
+
+        #Create the report file
+        with open(os.path.join(Path,mpCfgFileName),"w") as file:
             xmlStr = minidom.parseString(et.tostring(root,encoding='utf8').decode('utf8')).toprettyxml(indent = "  ")
             file.write(xmlStr)
-    
+        #Update the pkg file
+        et.register_namespace('','http://br-automation.co.at/AS/Hardware')
+        pkgFile = os.path.join(Path,"Package.pkg")
+        data = et.parse(pkgFile)
+        for elem in data.iter():
+            if(elem.text):
+                elem.text = elem.text.strip()
+            if(elem.tail):
+                elem.tail = elem.tail.strip()
+        pkgRoot = data.getroot()
+        exists = False
+        for obj in pkgRoot.iter():
+            if obj.text == mpCfgFileName:
+                exists = True
+                break
+        if not exists:
+            with open(pkgFile,"w") as file:
+                for obj in pkgRoot.findall("{namespace}Objects".format(namespace = "{http://br-automation.co.at/AS/Package}")):
+                    element = et.SubElement(obj,"Object",attrib={
+                        "Type":"File"
+                    })
+                    element.text = mpCfgFileName
+                xmlStr = minidom.parseString(et.tostring(pkgRoot,encoding='utf8').decode('utf8')).toprettyxml(indent = "  ")
+                file.write(xmlStr)
+                 
 
     @staticmethod
     def __createSettings(parent):

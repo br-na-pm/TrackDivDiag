@@ -4,7 +4,7 @@ from enum import Enum
 from xml.dom import minidom
 from glob import glob
 from pathlib import Path
-import argparse
+from src.export_cfg import ExportConfig
 
 from src.ReportBuilder import ReportBuilder
 
@@ -168,7 +168,7 @@ class ASProject:
         self.Config = Config
    
     def _configPath(self) -> str:
-        return self.ProjectPath + "\\Physical\\" + self.Config
+        return os.path.join(self.ProjectPath,"Physical",self.Config)
 
     def _getInputFiles(self) -> None:
         try:
@@ -187,11 +187,21 @@ class ASProject:
         except:
             print("HW file not found. Was the root directory of a project selected?")
         try:
-            vars = [y for x in os.walk(self.ProjectPath +r"\\Logical\\") for y in glob(os.path.join(x[0], 'Maint\\Variables.var'))]
+            vars = [y for x in os.walk(os.path.join(self.ProjectPath, 'Logical')) for y in glob(os.path.join(x[0], 'Maint','Init.st'))]
+            self.MaintInitPath = Path(vars[0])
+        except:
+            print("Could not find maint init file. Does the project have the technology solution imported?")
+        try:
+            vars = [y for x in os.walk(os.path.join(self.ProjectPath,'Logical')) for y in glob(os.path.join(x[0], 'Maint','Variables.var'))]
             self.MaintVarsPath = Path(vars[0])
         except:
             print("Could not find maint variable file. Does the project have the technology solution imported?")
-
+        try:
+            vars = [y for x in os.walk(self._configPath()) for y in glob(os.path.join(x[0], 'mappServices'))]
+            self.MpReportCorePath = Path(vars[0])
+        except:
+            print("Could not find mapp services package. Does the project have the mapp services package present?")
+        
     def __parse_rel_to_one(self,xmlElement,xmlParent) -> Diverter:
         spurSegName = ''
         spurRelTo = 'FromStart'
@@ -289,7 +299,16 @@ class ASProject:
         et.register_namespace('', 'http://br-automation.co.at/AS/Hardware')
         
        
-    def exportProject(self):
+    def ExportProject(self, exportCfg : ExportConfig):
+        if exportCfg.SectorExportEnabled:
+            self.__writeSectorFile()
+        if exportCfg.TaskInitExportEnabled:
+            self.__writeInitFile()
+        if exportCfg.TaskVarExportEnabled:
+            self.__updateDivertConstant()
+
+        ReportBuilder.export(self.Diverts,self.MpReportCorePath)
+    def __writeSectorFile(self):
         sectors = et.parse(self.SectorPath)
         for elem in sectors.iter():
             if(elem.text):
@@ -306,21 +325,15 @@ class ASProject:
             #If there is an AB or BA segment, we will just use that segment + FromStart/FromEnd +/- 90 to create the sector
             #If it's an AA segment, we'll just make a guess 
 
-
-        with open("./Test.sector","w") as file:
-            xmlStr = minidom.parseString(et.tostring(root,encoding='utf8').decode('utf8')).toprettyxml(indent = "    ")
-            file.write(xmlStr)
+        with open(self.SectorPath,"w") as file:
+                xmlStr = minidom.parseString(et.tostring(root,encoding='utf8').decode('utf8')).toprettyxml(indent = "    ")
+                file.write(xmlStr)
         
-        self._writeInitFile()
-        self.__updateDivertConstant()
-
-        ReportBuilder.export(Diverts=self.Diverts)
-
-    def _writeInitFile(self):
-        with open("./TestInit.st","w") as file:
+    def __writeInitFile(self):
+        with open(self.MaintInitPath,"w") as file:
             file.write("//This file was automatically generated using the Diverter Diagnostic program. Verify that the segment names and assembly name match your project values correctly\n")
             file.write("PROGRAM _INIT\n")
-            file.write("DivertTestOffsets.ShSourceSector := ADR({sectorName}); //This is where the starting shuttle is located, feel free to change if your start shuttle is located elsewhere".format(sectorName = self.Diverts[0].SectorName))
+            file.write("\tDivertTestOffsets.ShSourceSector := ADR({sectorName}); //This is where the starting shuttle is located, feel free to change if your start shuttle is located elsewhere\n".format(sectorName = self.Diverts[0].SectorName))
             for idx,div in enumerate(self.Diverts):
                 file.write("\tDivertTestOffsets.Sectors[{idx}] := {sectorName};\t//{divString}\n".format(idx = idx, sectorName = div.SectorName,divString = str(div)))
             file.write("\n")
@@ -348,3 +361,4 @@ class ASProject:
         fileData = fileData.replace("mlMAX_DIVERT_IDX : USINT := 11;","mlMAX_DIVERT_IDX : USINT := {count};".format(count = len(self.Diverts) - 1))
         with open (self.MaintVarsPath, "w") as file:
             file.write(fileData)
+
