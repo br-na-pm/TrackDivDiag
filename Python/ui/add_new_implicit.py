@@ -31,7 +31,7 @@ class AddImplicitWindow ( wx.Frame ):
         
         fgSizer1.Add( self.m_staticText11, 0, wx.ALL, 5 )
         
-        self.cbBaseSegment = wx.ComboBox( self, wx.ID_ANY, u"SegmentName!", wx.DefaultPosition, wx.Size( 200,-1 ), segList, 0 )
+        self.cbBaseSegment = wx.ComboBox( self, wx.ID_ANY, u"Segment Name", wx.DefaultPosition, wx.Size( 200,-1 ), segList, 0 )
         fgSizer1.Add( self.cbBaseSegment, 0, wx.ALL, 5 )
         
         self.btnAddDivert = wx.Button( self, wx.ID_ANY, u"Add", wx.DefaultPosition, wx.DefaultSize, 0 )
