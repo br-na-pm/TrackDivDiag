@@ -7,6 +7,7 @@ VAR
 	MaxDeviation : REAL; (*Maximum Diverter Deviation*)
 	MinDeviation : REAL; (*Minimum Diverter Deviation*)
 	i : USINT; (*Index*)
+	RunTest : BOOL;
 END_VAR
 (*Constants*)
 VAR CONSTANT
@@ -14,7 +15,4 @@ VAR CONSTANT
 	ERR_INVALID_SEG_TYPE : DINT := -10001; (*The segment type is invalid*)
 	ERR_INVALID_CONFIG : DINT := -10002; (*Resulting configuration is invalid*)
 	mlMAX_DIVERT_IDX : USINT := 11;
-END_VAR
-VAR
-	RunTest : BOOL;
 END_VAR
