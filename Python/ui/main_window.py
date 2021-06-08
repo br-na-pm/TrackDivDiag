@@ -145,7 +145,7 @@ class MainWindow ( wx.Frame ):
         dlg.ShowModal()
         self.Proj = ASProject(dlg.GetPath())
         configs = next(os.walk(self.Proj.ProjectPath+"\\Physical\\"))[1]
-        if len(configs) > 1:
+        if len(configs) >= 1:
             cfgSelect = ConfigSelectWindow(self,configs)
             cfgSelect.Show()
 
