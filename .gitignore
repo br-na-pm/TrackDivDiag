@@ -43,3 +43,9 @@ BaseProject/Diagnosis/
 **/__pycache__/**
 External/**/build/**
 External/**/dist/**
+
+# Python Build Files
+Python/build/**
+Python/dist/**
+*.spec
+/Python/__pycache__/**
