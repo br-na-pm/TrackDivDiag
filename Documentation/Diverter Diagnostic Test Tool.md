@@ -21,26 +21,6 @@ This test can be run on a command whenever it is required to re-validate the mec
 
 
 
-## Steps for usage:
-
-- Start with a Automation Studio Project with a working AcoposTrak layout
-- Add the Diverter Diagnostic Test Technology Solution
-- Open the Diverter Diagnostic Test Tool Importer program
-- Select the root directory of your project
-- Select the configuration you would like to work from
-- Verify that all Relative to Two diverts are defined correctly (see additional documentation for details)
-- Add any "Implicit Diverts" to the tool
-- Export the files to the project using the built in export tool
-- Verify the export data inside the Automation Studio project
-- Verify "Shuttle Start Sector" is correct
-- Verify MpReport FileDevice created
-- Compile and Transfer to system
-- Verify shuttle in "Shuttle Start Sector"
-- Ensure no physical obstructions for a shuttle to navigate to all diverts on the system
-- Power on AcpTrak assembly
-- Set "RunTest" value to true
-- Upon completion, a PDF report will be generated, validate the results
-
 ## Using the Import Tool:
 
 The first step in using the tool is to navigate to File -> Import Project. From there you can navigate to the root folder of your project you would like to import.
@@ -59,7 +39,7 @@ Once your configuration is selected, the tool will parse the AcpTrak assembly fi
 
 ![img](file:///C:/Users/trostelc/AppData/Local/Temp/SNAGHTML3368e3.PNG)
 
-The base and spur terminology can be correlated back the Automation Studio assembly file. The "Spur" segment, is the segment of the trak the reference is attached to. The "base" segment is the segment of existing already defined trak that you'd like to reference against. In the above example, the Base Segment A_39 was defined in trak 1 with a absolute position and the D_10 segment is being given a position relative to that.
+The base and spur terminology can be correlated back the Automation Studio assembly file. The "Spur" segment, is the segment of the trak the reference is attached to. The "base" segment is the segment of existing already defined trak that you'd like to reference against. In the above example, the Base Segment A_39 was defined in trak 1 with a absolute position and the D_10 segment is being given a position relative to that. So Seg_A_39 is the base and Seg_D_10 is the spur.
 
 The rest of the table can be used to validate the import from your assembly file. This information will be used to generate sectors automatically that are used for the test application. The only two columns that are editable are the "Divert Ref Segment" and the "Relative To". For more information on those columns reference the "Sectors Export Section"
 
@@ -85,15 +65,42 @@ After selecting the two segments and pressing "add" the segments will appear in 
 
 ### Divert Ref Segment and Relative To Columns
 
+![image-20210609080005346](C:\Users\trostelc\AppData\Roaming\Typora\typora-user-images\image-20210609080005346.png)
+
 These two columns on the table are the only two editable columns in the table. This data is used to automatically create the sector on the divert to send the shuttles to. The tool attempts to figure guess at the most likely segment to use as a refence and the best starting location (for example, if a divert has a BA segment and an AA segment, it makes sense to use the BA segment from the end as that's the only valid location on the BA segment to preform the divert)
 
-![image-20210601084949606](C:\Users\trostelc\AppData\Roaming\Typora\typora-user-images\image-20210601084949606.png)
+![image-20210609075943211](C:\Users\trostelc\AppData\Roaming\Typora\typora-user-images\image-20210609075943211.png)
 
 These two columns represent this data. If there is a need, the reference segment and Relative to column can be changed for a divert. 
 
 ## Adding and Using the Diverter Test Task
 
+The Divert Offset test is contained in a technology solution that you need to add to your project. The test itself lives inside the Maint Task under the Diagnostic package in the logical view. The test specifically takes a singular shuttle and routes it to a list of sectors
+
+## Steps for usage:
+
+- Start with a Automation Studio Project with a working AcoposTrak layout
+- Add the Diverter Diagnostic Test Technology Solution
+- If not already added, add MpServices to project
+- Open the Diverter Diagnostic Test Tool Importer program
+- Select the root directory of your project
+- Select the configuration you would like to work from
+- Verify that all Relative to Two diverts are defined correctly (see additional documentation for details)
+- Add any "Implicit Diverts" to the tool
+- Export the files to the project using the built in export tool
+- Verify the export data inside the Automation Studio project
+- Verify "Shuttle Start Sector" is correct
+- Create a "Report" file device for MpReport (or change the FileDevice in the Maint cyclic task) if not created already
+- Compile and Transfer to system
+- Verify shuttle in "Shuttle Start Sector"
+- Ensure no physical obstructions for a shuttle to navigate to all diverts on the system
+- Power on AcpTrak assembly
+- Set "RunTest" value to true
+- Upon completion, a PDF report will be generated, validate the results
+
 ## Evaluating The Report
+
+*Note - The test run in simulation will not actually record any positions. Don't be alarmed if in simulation the report appears to have missing data.*
 
 For each divert, a position measurement is taken. This measurement is used to calculate the relative offset from the two segments. Additionally the lag error between the two segments is used to determine the deviation from the virtual definition to the real world measurement.
 
