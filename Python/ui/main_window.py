@@ -1,4 +1,4 @@
-
+from wx.core import ACC_SEL_ADDSELECTION, MenuItem
 from ui.export_window import ExportWindow
 from ui.add_new_implicit import AddImplicitWindow
 from ui.config_select import ConfigSelectWindow
@@ -9,9 +9,11 @@ import wx.svg
 import os
 from src.AssemblyParse import ASProject,Diverter,DivReferenceType,Segment,SegRelTo,TrackSegmentType
 from src.export_cfg import ExportConfig
+from ui.popup_dialog import popupDialog
 ###########################################################################
 ## Class Main
 ###########################################################################
+
 
 class MainWindow ( wx.Frame ):
 
@@ -29,6 +31,7 @@ class MainWindow ( wx.Frame ):
         self.m_menu1.Append( self.Export)
 
         self.m_menu2 = wx.Menu()
+        
         self.miAddImplicitDivert = wx.MenuItem( self.m_menu1, wx.ID_ANY, u"Add Implicit Divert", wx.EmptyString, wx.ITEM_NORMAL )
         self.m_menu2.Append(self.miAddImplicitDivert)
 
@@ -41,6 +44,9 @@ class MainWindow ( wx.Frame ):
         gSizer1 = wx.GridSizer( 0, 2, 0, 0 )
 
         self.m_grid1 = wx.grid.Grid( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.counter = 0                                                                            #Number of imports
+        self.deletePressed = 0    
+        self.SelectedRow = 9999999                                                                     #Currently Selected Row
 
         # Grid
         self.m_grid1.CreateGrid( 1, 10 )
@@ -99,9 +105,10 @@ class MainWindow ( wx.Frame ):
 		# Connect Events
         self.Bind( wx.EVT_MENU, self.onFileImportProjectSelection, id = self.miFileImportProject.GetId() )
         self.Bind( wx.EVT_MENU, self.onAddImplicitDivert, id = self.miAddImplicitDivert.GetId() )
-        self.Bind(wx.EVT_MENU, self.onExportSelection, id= self.Export.GetId()
-        )
-
+        self.Bind(wx.EVT_MENU, self.onExportSelection, id= self.Export.GetId() )
+        self.Bind(wx.grid.EVT_GRID_SELECT_CELL, self.onCellSelect)
+        self.Bind(wx.EVT_KEY_DOWN, self.onChar)
+        self.Bind(wx.grid.EVT_GRID_CELL_RIGHT_CLICK, self.onCellRightClick)
 
     def __del__( self ):
         pass
@@ -131,54 +138,78 @@ class MainWindow ( wx.Frame ):
         choice_editor = wx.grid.GridCellChoiceEditor(choices)
         self.m_grid1.SetCellEditor(idx,8,choice_editor)
         self.m_grid1.SetCellValue(idx,8,choices[0])
-        relToEditor = wx.grid.GridCellChoiceEditor(["SegRelTo.FromStart","SegRelTo.FromStart"])
+        relToEditor = wx.grid.GridCellChoiceEditor(["SegRelTo.FromStart","SegRelTo.FromEnd"])
         self.m_grid1.SetCellEditor(idx,9,relToEditor)
         self.m_grid1.SetCellValue(idx,9,str(divert.GetRefSegRelativeTo()))
         
+        
+
         for i in range(8): #Set all the cells to be read only except the last one
             self.m_grid1.SetReadOnly(idx,i)
         self.Proj.Diverts.append(divert)
         self.m_grid1.AutoSize()
 
     def onFileImportProjectSelection( self, event ):
-        dlg = wx.DirDialog(None,"Choose directory","",wx.DD_DEFAULT_STYLE | wx.DD_DIR_MUST_EXIST)
+        dlg = wx.FileDialog(None,message="Choose APJ File",defaultFile="", style = wx.FD_FILE_MUST_EXIST)
         dlg.ShowModal()
-        self.Proj = ASProject(dlg.GetPath())
-        configs = next(os.walk(self.Proj.ProjectPath+"\\Physical\\"))[1]
-        if len(configs) >= 1:
-            cfgSelect = ConfigSelectWindow(self,configs)
-            cfgSelect.Show()
+        pathTuple = os.path.split(dlg.GetPath())
+        self.Proj = ASProject(pathTuple[0])
+        try:
+            configs = next(os.walk(self.Proj.ProjectPath+"\\Physical\\"))[1]
+            if len(configs) >= 1:
+                self.cfgSelectWindow = ConfigSelectWindow(self,configs)
+                self.cfgSelectWindow.Show()
+            else:
+                popupFenster = popupDialog(None, popupWords="No Config found. Is this an ACOPOSTrak project?")
+                popupFenster.Show(True)
+        except:
+            popupFenster = popupDialog(None, popupWords="Directory Invalid. No /Phyiscal/ folder found. Please select the main folder of your Automation Studio ACOPOSTrak Project")
+            popupFenster.Show(True)
+        
 
     def onCfgSelected(self,CfgName):
         self.Proj.Config = CfgName
-        self.Proj.parseProject()
-        self.fillGrid(self.Proj.Diverts)
+        try:
+            self.Proj.parseProject()
+            self.fillGrid(self.Proj.Diverts)
+        except:
+            self.cfgSelectWindow.Destroy
+        
+
 
     def fillGrid(self,DivertList):
+        self.counter = self.counter + 1
         self.m_grid1.ClearGrid()
+        if self.m_grid1.GetNumberRows() > 0:
+            self.m_grid1.DeleteRows(pos= 0, numRows= self.m_grid1.GetNumberRows()-1)
         self.m_grid1.AppendRows(len(DivertList)-1)
+                       
         for idx,divert in enumerate(DivertList):
-            choices = []
-            choices.append(divert.SpurTrackSegment.SegName)
-            choices.append(divert.BaseTrackSegment.SegName)
-            self.m_grid1.SetCellValue(idx,0,divert.SpurTrackSegment.SegName)
-            self.m_grid1.SetCellValue(idx,1,str(divert.SpurTrackSegment.SegmentType))
-            self.m_grid1.SetCellValue(idx,2,str(divert.SpurTrackSegment.RelativeTo))
-            self.m_grid1.SetCellValue(idx,3,str(divert.SpurTrackSegment.Position))
-            self.m_grid1.SetCellValue(idx,4,divert.BaseTrackSegment.SegName)
-            self.m_grid1.SetCellValue(idx,5,str(divert.BaseTrackSegment.SegmentType))
-            self.m_grid1.SetCellValue(idx,6,str(divert.BaseTrackSegment.RelativeTo))
-            self.m_grid1.SetCellValue(idx,7,str(divert.BaseTrackSegment.Position))
-            choice_editor = wx.grid.GridCellChoiceEditor(choices)
-            self.m_grid1.SetCellEditor(idx,8,choice_editor)
-            self.m_grid1.SetCellValue(idx,8,choices[0])
-            self.m_grid1.SetCellValue(idx,9,str(divert.GetRefSegRelativeTo()))
-            relToEditor = wx.grid.GridCellChoiceEditor(["SegRelTo.FromStart","SegRelTo.FromEnd"])
-            self.m_grid1.SetCellEditor(idx,9,relToEditor)
+                
 
-            for i in range(8): #Set all the cells to be read only except the last one
-                self.m_grid1.SetReadOnly(idx,i)
-            
+                choices = []
+                choices.append(divert.SpurTrackSegment.SegName)
+                choices.append(divert.BaseTrackSegment.SegName)
+                self.m_grid1.SetCellValue(idx,0,divert.SpurTrackSegment.SegName)
+                self.m_grid1.SetCellValue(idx,1,str(divert.SpurTrackSegment.SegmentType))
+                self.m_grid1.SetCellValue(idx,2,str(divert.SpurTrackSegment.RelativeTo))
+                self.m_grid1.SetCellValue(idx,3,str(divert.SpurTrackSegment.Position))
+                self.m_grid1.SetCellValue(idx,4,divert.BaseTrackSegment.SegName)
+                self.m_grid1.SetCellValue(idx,5,str(divert.BaseTrackSegment.SegmentType))
+                self.m_grid1.SetCellValue(idx,6,str(divert.BaseTrackSegment.RelativeTo))
+                self.m_grid1.SetCellValue(idx,7,str(divert.BaseTrackSegment.Position))
+                choice_editor = wx.grid.GridCellChoiceEditor(choices)
+                self.m_grid1.SetCellEditor(idx,8,choice_editor)
+                self.m_grid1.SetCellValue(idx,8,choices[0])
+                self.m_grid1.SetCellValue(idx,9,str(divert.GetRefSegRelativeTo()))
+                relToEditor = wx.grid.GridCellChoiceEditor(["SegRelTo.FromStart","SegRelTo.FromEnd"])
+                self.m_grid1.SetCellEditor(idx,9,relToEditor)
+                
+          
+
+                for i in range(8): #Set all the cells to be read only except the last one
+                    self.m_grid1.SetReadOnly(idx,i)
+
         self.m_grid1.AutoSize()
 
     def onGridCellChanged(self,event):
@@ -202,8 +233,48 @@ class MainWindow ( wx.Frame ):
                 self.Proj.Diverts[r].SetBaseReference(SegRelTo.FromEnd)
 
     def onExportSelection(self,event):
-        exportWindow = ExportWindow(self, self.Proj)
-        exportWindow.Show()
-#        self.Proj.exportProject()
+        try:
+            exportWindow = ExportWindow(self, self.Proj)
+            exportWindow.Show()
+        except:
+           popupFenster = popupDialog(None, popupWords="Couldn't open exporter")
+           popupFenster.Show(True)
     
+    def onCellSelect(self,event):
+        self.SelectedRow = event.GetRow()
+        #print(self.SelectedRow)
+
+    def onChar(self,event):                                                                                 # Triggered on Any Character Press
+        chr = event.GetRawKeyCode()
+        #print(chr)        
+        if chr == 46:                                                                                       # Delete Key
+            chrRows = self.m_grid1.GetSelectedRows()
+            if len(self.m_grid1.GetSelectedRows()) > 1:                                                     #Checks if multiple rows are selected
+                self.m_grid1.DeleteRows(pos= chrRows[0], numRows=len(self.m_grid1.GetSelectedRows()))
+                for i in chrRows:
+                    self.Proj.Diverts.pop(chrRows[0])                                                       #chrRows[0] returns index of the first row of the group
+                    self.m_grid1.AutoSize()
+                print(len(self.Proj.Diverts))
+            else:
+                self.m_grid1.DeleteRows(self.SelectedRow)                                                   #This runs if only 1 row is selected
+                self.Proj.Diverts.pop(self.SelectedRow)
+                print(len(self.Proj.Diverts))
+                self.m_grid1.AutoSize()
+        
+    def onCellRightClick(self,event):
+    
+       self.RightClickPos = event.GetPosition()
+       self.RightClickedRow = event.GetRow()
+       self.m_grid1.SelectRow(self.RightClickedRow)
+       self.cellRightClickMenu = wx.Menu()
+       self.menuItemDelete = wx.MenuItem( self.cellRightClickMenu, wx.ID_ANY, u"Delete Row", wx.EmptyString, wx.ITEM_NORMAL )
+       self.cellRightClickMenu.Append(self.menuItemDelete)
+
+        
+       
+
+     
+
+
+
 

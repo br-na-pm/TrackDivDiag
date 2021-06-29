@@ -23,7 +23,8 @@ class AddImplicitWindow ( wx.Frame ):
         
         fgSizer1.Add( self.m_staticText1, 0, wx.ALL, 5 )
         
-        self.cbSpurSegment = wx.ComboBox( self, wx.ID_ANY, u"Segment Name", wx.DefaultPosition, wx.Size( 200,-1 ), segList, 0 )
+        sortedSegList = sorted(segList, key = lambda x:x.lower())                       #Sorts the segments alphabetically
+        self.cbSpurSegment = wx.ComboBox( self, wx.ID_ANY, u"Segment Name", wx.DefaultPosition, wx.Size( 200,-1 ), sortedSegList, 0 )
         fgSizer1.Add( self.cbSpurSegment, 0, wx.ALL, 5 )
         
         self.m_staticText11 = wx.StaticText( self, wx.ID_ANY, u"Base Segment", wx.DefaultPosition, wx.DefaultSize, 0 )
@@ -31,7 +32,7 @@ class AddImplicitWindow ( wx.Frame ):
         
         fgSizer1.Add( self.m_staticText11, 0, wx.ALL, 5 )
         
-        self.cbBaseSegment = wx.ComboBox( self, wx.ID_ANY, u"Segment Name", wx.DefaultPosition, wx.Size( 200,-1 ), segList, 0 )
+        self.cbBaseSegment = wx.ComboBox( self, wx.ID_ANY, u"Segment Name", wx.DefaultPosition, wx.Size( 200,-1 ), sortedSegList, 0 )
         fgSizer1.Add( self.cbBaseSegment, 0, wx.ALL, 5 )
         
         self.btnAddDivert = wx.Button( self, wx.ID_ANY, u"Add", wx.DefaultPosition, wx.DefaultSize, 0 )

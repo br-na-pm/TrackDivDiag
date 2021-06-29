@@ -4,11 +4,14 @@ from enum import Enum
 from xml.dom import minidom
 from glob import glob
 from pathlib import Path
+
+import wx
+import wx.xrc
 from src.export_cfg import ExportConfig
 
 from src.ReportBuilder import ReportBuilder
-
-class DivReferenceType(Enum):
+from ui.popup_dialog import popupDialog
+class DivReferenceType(Enum):  
     RelToOne = 0
     RelToTwo = 1
 
@@ -16,70 +19,68 @@ class SegRelTo(Enum):
     FromStart = 0,
     FromEnd = 1
 class TrackSegmentType(Enum):
-    AA = 0,
+    AA = 0,                     
     AB = 1,
     BA = 2,
     BB = 3
 
 class Segment:
-    def __init__(self, SegName, Position = "0.0", RelativeTo="FromStart", SegmentType = "8F1I01.AA66.xxxx-1"):
-        self.SegName = SegName
+    def __init__(self, SegName, Position = "0.0", RelativeTo="FromStart", SegmentType = "8F1I01.AA66.xxxx-1"):   
+        self.SegName = SegName                                
         self.Position = float(Position)
-        self.SegmentType = TrackSegmentType.BB #Doing this as a placeholder
+        self.SegmentType = TrackSegmentType.BB                  
         if(RelativeTo == "FromStart"):
             self.RelativeTo = SegRelTo.FromStart
         else:
             self.RelativeTo = SegRelTo.FromEnd
-        if self.SegName.find("::") > -1:
-            self.SegName = self.SegName.lstrip('::')
-        if self.SegName == "":
-            print("Bad segname")
-        self.setSegmentType(SegmentType)
+        if self.SegName.find("::") < -1:                        
+            self.SegName = self.SegName.lstrip('::')            
+        if self.SegName == "":                                  
+            print("Bad segname")                                
+        self.setSegmentType(SegmentType)                        
 
     def __str__(self):
-        return "{segName}:{type} {relTo} at {pos}".format(
+        return "{segName}:{type} {relTo} at {pos}".format(      
             segName = self.SegName,
             type = self.SegmentType,
             relTo = self.RelativeTo,
             pos = str(self.Position)
         )
 
-    def setSegmentType(self,SegmentType):
-        if SegmentType.find("AA66") > -1:
+    def setSegmentType(self,SegmentType):                                      
+        if SegmentType.find("AA66") > -1:                                      
             self.SegmentType = TrackSegmentType.AA
-            if self.RelativeTo == SegRelTo.FromEnd:
-                self.PosFromStart = str(0.66 - float(self.Position))
-            else:
-                self.PosFromStart = str(self.Position)
-        elif SegmentType.find("AB2B") > -1:
+        elif SegmentType.find("AB2B") > -1:                     
             self.SegmentType = TrackSegmentType.AB
-            if self.RelativeTo == SegRelTo.FromEnd:
-                self.PosFromStart = str(0.450642056 - float(self.Position))
-            else:
-                self.PosFromStart = self.Position
-        elif SegmentType.find("BA2B") > -1:
+        elif SegmentType.find("BA2B") > -1:                     
             self.SegmentType = TrackSegmentType.BA
-            if self.RelativeTo == SegRelTo.FromEnd:
-                self.PosFromStart = str(0.450642056 - float(self.Position))
-            else:
-                self.PosFromStart = str(self.Position)
-    
-    def segLength(self) -> float:
+
+
+    def segLength(self) -> float:         
         if self.SegmentType == TrackSegmentType.AA:
             return 0.66
         elif self.SegmentType == TrackSegmentType.AB or self.SegmentType == TrackSegmentType.BA:
-            return 0.450642056
-                    
+            return 0.450642056 
+                 
 class Diverter:
-    def __init__(self,DivType, SpurTrackSegment, BaseTrackSegment, DivTestPosition = 0.045):
-        self.DivType = DivType
-        self.SpurTrackSegment = SpurTrackSegment
-        self.BaseTrackSegment = BaseTrackSegment
-        self.DivTestPosition = DivTestPosition
-        self._chooseRefSegment()
+    def __init__(self,DivType, SpurTrackSegment, BaseTrackSegment, DivTestPosition = 0.045):  
+        self.DivType = DivType                                           
+        self.SpurTrackSegment = SpurTrackSegment                           
+        self.BaseTrackSegment = BaseTrackSegment                          
+        self.DivTestPosition = DivTestPosition                             
+        self._chooseRefSegment()                                           
+
+    def _chooseRefSegment(self):
+        
+        if self.SpurTrackSegment.SegmentType == TrackSegmentType.AB or self.SpurTrackSegment.SegmentType == TrackSegmentType.BA:
+            self.RefSegment = "spur"
+        elif self.BaseTrackSegment.SegmentType == TrackSegmentType.AB or self.BaseTrackSegment.SegmentType == TrackSegmentType.BA:
+            self.RefSegment = "base"
+        else:
+            self.RefSegment = "spur"    
 
     def __str__(self):
-        return "{segSpur} connected to {segBase} type {divType}".format(
+        return "{segSpur} connected to {segBase} type {divType}".format(  #self return function
             segSpur = self.SpurTrackSegment,
             segBase = self.BaseTrackSegment,
             divType = self.DivType
@@ -91,7 +92,7 @@ class Diverter:
         else:
             return self.BaseTrackSegment
 
-    def GetRefSegRelativeTo(self) -> SegRelTo:
+    def GetRefSegRelativeTo(self) -> SegRelTo:     
         return self.__getRefSegment().RelativeTo
 
     def BuildSector(self,XmlElement):
@@ -132,14 +133,7 @@ class Diverter:
         prop.attrib["Value"] = "0.1"
         return XmlElement
 
-    def _chooseRefSegment(self):
-        #If one of the segments on the divert is a AB or BA it becomes the reference sector
-        if self.SpurTrackSegment.SegmentType == TrackSegmentType.AB or self.SpurTrackSegment.SegmentType == TrackSegmentType.BA:
-            self.RefSegment = "spur"
-        elif self.BaseTrackSegment.SegmentType == TrackSegmentType.AB or self.BaseTrackSegment.SegmentType == TrackSegmentType.BA:
-            self.RefSegment = "base"
-        else:
-            self.RefSegment = "spur"
+   
         
     def SetSectorName(self,divCount = 0) -> None:
         self.SectorName = "gDivSector_{idx}".format(idx = divCount)
@@ -157,6 +151,7 @@ class Diverter:
                 return self.BaseTrackSegment.segLength() - self.BaseTrackSegment.Position - 0.09
     def SetBaseReference(self,Ref : SegRelTo):
         self.__getRefSegment().RelativeTo = Ref
+
 #Request which configuration to use
 #Get the .hw file
 #Get the .sector file
@@ -175,33 +170,39 @@ class ASProject:
             AssemblyPath = [y for x in os.walk(self._configPath()) for y in glob(os.path.join(x[0], '*.assembly'))]
             self.AssemblyPath = Path(AssemblyPath[0])
         except:
-            print("Assembly file not found. Is the AcpTrak system configured in this project?")
+            popupFenster = popupDialog(None, popupWords="Assembly file not found. Is the ACOPOSTrak system configured in the project?")
+            popupFenster.Show(True)
         try:
             SectorPath = [y for x in os.walk(self._configPath()) for y in glob(os.path.join(x[0], '*.sector'))]
             self.SectorPath = Path(SectorPath[0])
         except:
-            print("Sector file not found!")
+            popupFenster = popupDialog(None, popupWords="Sector File Not Found")
+            popupFenster.Show(True)
         try:
             hw = [y for x in os.walk(self._configPath()) for y in glob(os.path.join(x[0], '*.hw'))]
             self.HWPath = Path(hw[0])
         except:
-            print("HW file not found. Was the root directory of a project selected?")
+            popupFenster = popupDialog(None, popupWords="HW file not found. Was the root directory of a project selected?")
+            popupFenster.Show(True)
         try:
             vars = [y for x in os.walk(os.path.join(self.ProjectPath, 'Logical')) for y in glob(os.path.join(x[0], 'Maint','Init.st'))]
             self.MaintInitPath = Path(vars[0])
         except:
-            print("Could not find maint init file. Does the project have the technology solution imported?")
+            popupFenster = popupDialog(None, popupWords="Could not find maint init file. Does the project have the technology solution imported?")
+            popupFenster.Show(True)
         try:
             vars = [y for x in os.walk(os.path.join(self.ProjectPath,'Logical')) for y in glob(os.path.join(x[0], 'Maint','Variables.var'))]
             self.MaintVarsPath = Path(vars[0])
         except:
-            print("Could not find maint variable file. Does the project have the technology solution imported?")
+            popupFenster = popupDialog(None, popupWords="Could not find maint variable file. Does the project have the technology solution imported?")
+            popupFenster.Show(True)
         try:
             vars = [y for x in os.walk(self._configPath()) for y in glob(os.path.join(x[0], 'mappServices'))]
             self.MpReportCorePath = Path(vars[0])
         except:
-            print("Could not find mapp services package. Does the project have the mapp services package present?")
-        
+            popupFenster = popupDialog(None, popupWords="Could not find mapp services package. Does the project have the mapp services package present?")
+            popupFenster.Show(True)
+
     def __parse_rel_to_one(self,xmlElement,xmlParent) -> Diverter:
         spurSegName = ''
         spurRelTo = 'FromStart'
@@ -252,6 +253,7 @@ class ASProject:
             elif seg.attrib['ID'] == "SegmentRefBaseSecond":
                 secondSegBaseName = seg.attrib['Value'].lstrip('::')
         diverts = []
+         #trying to fix bug with empty rows if imported twice
         diverts.append(Diverter(DivReferenceType.RelToTwo, self.Segments[firstSegSpurName], self.Segments[firstSegBaseName]))
         diverts.append(Diverter(DivReferenceType.RelToTwo, self.Segments[secondSegSpurName], self.Segments[secondSegBaseName]))
         return diverts
@@ -309,7 +311,7 @@ class ASProject:
 
         ReportBuilder.export(self.Diverts,self.MpReportCorePath)
     def __writeSectorFile(self):
-        sectors = et.parse(self.SectorPath)
+        sectors = et.parse(self.SectorPath)                     #
         for elem in sectors.iter():
             if(elem.text):
                 elem.text = elem.text.strip()
